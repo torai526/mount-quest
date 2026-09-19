@@ -71,7 +71,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
 
 /* v0.9 絶対神の助言 */
 .god-btn{background:linear-gradient(135deg,#7c3aed,#d97706,#facc15);background-size:220% 220%;animation:godButtonGlow 2.4s ease infinite;box-shadow:0 0 18px #fbbf2466;color:#fff}
-.god-btn:disabled{opacity:.55;animation:none;cursor:wait}
+.god-btn:disabled{opacity:.55;animation:none;cursor:not-allowed;filter:grayscale(.25)}
 .cell.god-source{outline:4px solid #fde047;box-shadow:0 0 18px #facc15,inset 0 0 22px #fbbf2455;animation:godSource 1s ease-in-out infinite alternate}
 .cell.god-target{outline:5px solid #fff2a8;background:radial-gradient(circle,#fef08a,#d97706 74%,#78350f);box-shadow:0 0 25px #facc15,0 0 55px #f59e0b,inset 0 0 18px #fff9;animation:godTarget .78s ease-in-out infinite alternate;z-index:4}
 .reserve-piece.god-source{outline:4px solid #fde047;background:linear-gradient(135deg,#78350f,#d97706);box-shadow:0 0 24px #facc15;animation:godSource 1s ease-in-out infinite alternate}
@@ -125,7 +125,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
         <button class="btn secondary" data-nav="achievementsScreen">🏆 実績</button>
       </div>
     </div>
-    <p class="footer">Mount Quest v1.0 絶対神キャラクター版</p>
+    <p class="footer">Mount Quest v1.1 絶対神AI対戦対応版</p>
   </section>
 
   <section id="setupScreen" class="screen">
@@ -135,10 +135,10 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
         <label><input class="choice" type="radio" name="mode" value="ai" checked><span>魔王AIと対戦</span></label>
         <label><input class="choice" type="radio" name="mode" value="local"><span>2人で対戦</span></label>
       </div></div>
-      <div id="godOptionField" class="field hidden"><label>絶対神の助言</label><div class="segmented two">
+      <div id="godOptionField" class="field"><label>絶対神の助言</label><div class="segmented two">
         <label><input class="choice" type="radio" name="godHelp" value="on" checked><span>✨ あり</span></label>
         <label><input class="choice" type="radio" name="godHelp" value="off"><span>なし</span></label>
-      </div><p class="note">2人対戦中、現在の手番に対する最強AIの推奨手を表示します。</p></div>
+      </div><p class="note">現在の手番に対する最強AIの推奨手を表示します。AI対戦では勇者軍の手番中に利用できます。</p></div>
       <div class="field"><label>盤面</label><div class="segmented two">
         <label><input class="choice" type="radio" name="size" value="3"><span>3 × 3</span></label>
         <label><input class="choice" type="radio" name="size" value="4" checked><span>4 × 4</span></label>
@@ -154,7 +154,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
         <label><input class="choice" type="radio" name="first" value="demon"><span>後手</span></label>
         <label><input class="choice" type="radio" name="first" value="random"><span>ランダム</span></label>
       </div></div>
-      <p id="modeNote" class="note">AI対戦では、あなたは勇者軍、AIは魔王軍で固定されます。</p>
+      <p id="modeNote" class="note">AI対戦では、あなたは勇者軍、AIは魔王軍で固定されます。絶対神の助言は勇者軍の手番中に利用できます。</p>
       <button id="launchBtn" class="btn" style="width:100%">出撃する</button>
     </div>
   </section>
@@ -225,7 +225,7 @@ function saveData(d){localStorage.setItem("mountQuestData",JSON.stringify(d))}
 function unlock(id){const d=loadData();if(!d.unlocked)d.unlocked={};if(!d.unlocked[id]){d.unlocked[id]=true;saveData(d);const a=ACHIEVEMENTS.find(x=>x.id===id);if(a)toast(`実績解除：${a.name}`)}}
 function showScreen(id){$$('.screen').forEach(x=>x.classList.toggle('active',x.id===id));if(id==='statsScreen')renderStats();if(id==='achievementsScreen')renderAchievements();scrollTo(0,0)}
 $$('[data-nav]').forEach(b=>b.addEventListener('click',()=>showScreen(b.dataset.nav)));
-$$('input[name="mode"]').forEach(x=>x.addEventListener('change',()=>{const ai=x.value==='ai'&&x.checked;$('#difficultyField').classList.toggle('hidden',!ai);$('#godOptionField').classList.toggle('hidden',ai);$('#modeNote').textContent=ai?'AI対戦では、あなたは勇者軍、AIは魔王軍で固定されます。':'2人対戦では、勇者軍と魔王軍を交互に操作します。'}));
+$$('input[name="mode"]').forEach(x=>x.addEventListener('change',()=>{const ai=x.value==='ai'&&x.checked;$('#difficultyField').classList.toggle('hidden',!ai);$('#modeNote').textContent=ai?'AI対戦では、あなたは勇者軍、AIは魔王軍で固定されます。絶対神の助言は勇者軍の手番中に利用できます。':'2人対戦では、勇者軍と魔王軍を交互に操作します。'}));
 function selected(name){return $(`input[name="${name}"]:checked`).value}
 class Rules{
   constructor(n){this.n=n;this.k=n;this.counts=n===3?[2,2,2]:[4,3,3];this.lines=[];for(let r=0;r<n;r++)this.lines.push(Array.from({length:n},(_,c)=>r*n+c));for(let c=0;c<n;c++)this.lines.push(Array.from({length:n},(_,r)=>r*n+c));this.lines.push(Array.from({length:n},(_,i)=>i*n+i));this.lines.push(Array.from({length:n},(_,i)=>i*n+(n-1-i)))}
@@ -276,7 +276,7 @@ function undoMove(){
 }
 function startGame(){config={mode:selected('mode'),size:+selected('size'),difficulty:selected('difficulty'),first:selected('first'),godHelp:selected('godHelp')};if(config.first==='random')config.first=Math.random()<.5?'hero':'demon';rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];aiThinking=false;aiJobId++;history=[];godHint=null;godThinking=false;godJobId++;lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;godHint=null;godThinking=false;godJobId++;unlock('firstGame');showScreen('gameScreen');renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}
 $('#launchBtn').addEventListener('click',startGame);
-function renderGame(){updateUndoButton();const godBtn=$('#godBtn');if(godBtn){const show=config.mode==='local'&&config.godHelp==='on'&&!gameOver;godBtn.classList.toggle('hidden',!show);godBtn.disabled=godThinking;godBtn.querySelector('span').textContent=godThinking?'神託を受信中…':'絶対神に問う'}const st=$('#status');const turnChanged=lastRenderedTurn!==null&&lastRenderedTurn!==state.turn;st.textContent=gameOver?'対局終了':aiThinking?'魔王AIが思考中…':`${PLAYER_NAMES[state.turn]}の手番`;st.className=`status ${state.turn===0?'hero-side':'demon-side'}`;if(turnChanged){st.classList.add('turn-change');setTimeout(()=>st.classList.remove('turn-change'),520)}lastRenderedTurn=state.turn;renderReserve('#heroReserve',0);renderReserve('#demonReserve',1);const board=$('#board');board.className=`board n${rules.n}`;board.innerHTML='';for(let i=0;i<state.board.length;i++){const c=document.createElement('button');c.className='cell';c.type='button';if(selection?.src===i)c.classList.add('selected');if(winningLine.includes(i))c.classList.add('winning');if(i===lastMoveDst)c.classList.add('last-move');if(godHint?.src===i)c.classList.add('god-source');if(godHint?.dst===i)c.classList.add('god-target');if(selection&&state.legal({src:selection.src,dst:i,size:selection.size}))c.classList.add('legal-target');const p=state.top(i);if(p){const d=document.createElement('div');d.className=`board-piece p${p.player} s${p.size}`;if(i===lastMoveDst)d.classList.add(returnAnimation?'piece-return':(lastMoveWasCover?'piece-cover':'piece-enter'));d.innerHTML=`<span class="turn-aura"></span><img class="piece-img" src="${PIECES[p.player][p.size-1].image}" alt="${PIECES[p.player][p.size-1].name}" onerror="this.replaceWith(document.createTextNode('${PIECES[p.player][p.size-1].emoji}'))"><span class="badge">${p.size}</span>`;c.appendChild(d)}c.addEventListener('click',()=>cellClick(i));board.appendChild(c)}}
+function renderGame(){updateUndoButton();const godBtn=$('#godBtn');if(godBtn){const show=config.godHelp==='on'&&!gameOver;const unavailable=godThinking||aiThinking||(config.mode==='ai'&&state?.turn!==0);godBtn.classList.toggle('hidden',!show);godBtn.disabled=unavailable;godBtn.querySelector('span').textContent=godThinking?'神託を受信中…':aiThinking?'魔王AIが思考中…':(config.mode==='ai'&&state?.turn!==0?'勇者軍の手番で利用可能':'絶対神に問う')}const st=$('#status');const turnChanged=lastRenderedTurn!==null&&lastRenderedTurn!==state.turn;st.textContent=gameOver?'対局終了':aiThinking?'魔王AIが思考中…':`${PLAYER_NAMES[state.turn]}の手番`;st.className=`status ${state.turn===0?'hero-side':'demon-side'}`;if(turnChanged){st.classList.add('turn-change');setTimeout(()=>st.classList.remove('turn-change'),520)}lastRenderedTurn=state.turn;renderReserve('#heroReserve',0);renderReserve('#demonReserve',1);const board=$('#board');board.className=`board n${rules.n}`;board.innerHTML='';for(let i=0;i<state.board.length;i++){const c=document.createElement('button');c.className='cell';c.type='button';if(selection?.src===i)c.classList.add('selected');if(winningLine.includes(i))c.classList.add('winning');if(i===lastMoveDst)c.classList.add('last-move');if(godHint?.src===i)c.classList.add('god-source');if(godHint?.dst===i)c.classList.add('god-target');if(selection&&state.legal({src:selection.src,dst:i,size:selection.size}))c.classList.add('legal-target');const p=state.top(i);if(p){const d=document.createElement('div');d.className=`board-piece p${p.player} s${p.size}`;if(i===lastMoveDst)d.classList.add(returnAnimation?'piece-return':(lastMoveWasCover?'piece-cover':'piece-enter'));d.innerHTML=`<span class="turn-aura"></span><img class="piece-img" src="${PIECES[p.player][p.size-1].image}" alt="${PIECES[p.player][p.size-1].name}" onerror="this.replaceWith(document.createTextNode('${PIECES[p.player][p.size-1].emoji}'))"><span class="badge">${p.size}</span>`;c.appendChild(d)}c.addEventListener('click',()=>cellClick(i));board.appendChild(c)}}
 function renderReserve(sel,player){const el=$(sel);el.innerHTML=`<div class="reserve-title">${PLAYER_NAMES[player]}の持ち駒</div>`;PIECES[player].forEach(piece=>{const count=state.reserves[player][piece.size-1],b=document.createElement('button');b.type='button';b.className='reserve-piece';if(selection?.src===null&&selection.size===piece.size&&state.turn===player)b.classList.add('selected');if(godHint?.src===null&&godHint?.size===piece.size&&state.turn===player)b.classList.add('god-source');b.disabled=gameOver||aiThinking||state.turn!==player||count===0||(config.mode==='ai'&&player===1);b.innerHTML=`<img class="piece-img" src="${piece.image}" alt="${piece.name}" onerror="this.replaceWith(document.createTextNode('${piece.emoji}'))"><span>${piece.name}</span><span class="piece-count">×${count}</span>`;b.addEventListener('click',()=>{selection={src:null,size:piece.size};renderGame()});el.appendChild(b)})}
 function cellClick(i){godHint=null;if(gameOver||aiThinking||(config.mode==='ai'&&state.turn===1))return;if(selection){const m={src:selection.src,dst:i,size:selection.size};if(state.legal(m)){playMove(m,false);return}toast('そこには置けません')}const p=state.top(i);if(p&&p.player===state.turn){selection={src:i,size:p.size};renderGame()}}
 
@@ -320,9 +320,9 @@ function showGodRevelation(move){
   setTimeout(()=>overlay.classList.remove('active'),2200);
 }
 function askAbsoluteGod(){
-  if(config.mode!=='local'||config.godHelp!=='on'||gameOver||godThinking)return;
+  if(config.godHelp!=='on'||gameOver||godThinking||aiThinking)return;if(config.mode==='ai'&&state.turn!==0){toast('絶対神の助言は勇者軍の手番で利用できます');return;}
   const job=++godJobId,snapshot=state;
-  godThinking=true;godHint=null;renderGame();toast('絶対神が未来を見通しています…');
+  godThinking=true;godHint=null;renderGame();toast(config.mode==='ai'?'絶対神が勇者軍の未来を見通しています…':'絶対神が未来を見通しています…');
   setTimeout(()=>{
     if(job!==godJobId||state!==snapshot){godThinking=false;renderGame();return}
     try{
