@@ -92,6 +92,24 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
 @keyframes godSub{0%,20%{opacity:0;transform:translateY(18px)}40%,78%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-12px)}}
 @media(prefers-reduced-motion:reduce){.god-overlay.active,.god-beam,.god-halo,.god-message strong,.god-message span,.god-source,.god-target,.god-btn{animation-duration:.01ms!important;animation-iteration-count:1!important}}
 
+
+/* v1.0 絶対神キャラクター */
+.god-btn{display:flex;align-items:center;justify-content:center;gap:9px}
+.god-btn-icon{width:34px;height:34px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 0 7px #fde68a)}
+.god-character-wrap{position:absolute;left:50%;top:46%;width:min(80vw,430px);height:min(68vh,560px);transform:translate(-50%,-50%);display:flex;align-items:flex-end;justify-content:center;opacity:0}
+.god-overlay.active .god-character-wrap{animation:godCharacterAppear 2.2s cubic-bezier(.16,.82,.28,1) forwards}
+.god-character{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 8px 6px #0008) drop-shadow(0 0 20px #fde68a) drop-shadow(0 0 46px #f59e0b);transform-origin:center bottom}
+.god-character-fallback{display:none;font-size:clamp(7rem,35vw,15rem);filter:drop-shadow(0 0 30px #fbbf24)}
+.god-message{top:78%;z-index:3}
+.god-message strong{font-size:clamp(2rem,10vw,5rem)}
+.god-message span{padding:8px 14px;margin-inline:auto;width:max-content;max-width:94vw;border-radius:999px;background:#130a27cc;border:1px solid #fde68a88}
+.god-sigil{position:absolute;left:50%;bottom:4%;width:min(82vw,470px);aspect-ratio:1;transform:translateX(-50%) rotateX(72deg);border:7px double #fde68a;border-radius:50%;box-shadow:0 0 24px #facc15,inset 0 0 30px #f59e0b;opacity:0}
+.god-overlay.active .god-sigil{animation:godSigil 2.1s ease-out forwards}
+@keyframes godCharacterAppear{0%{opacity:0;transform:translate(-50%,-40%) scale(.45);filter:brightness(3)}24%{opacity:1;transform:translate(-50%,-50%) scale(1.12);filter:brightness(1.8)}42%,76%{opacity:1;transform:translate(-50%,-50%) scale(1);filter:brightness(1)}100%{opacity:0;transform:translate(-50%,-54%) scale(1.04);filter:brightness(1.25)}}
+@keyframes godSigil{0%{opacity:0;transform:translateX(-50%) rotateX(72deg) rotate(-55deg) scale(.2)}30%{opacity:1}80%{opacity:.95}100%{opacity:0;transform:translateX(-50%) rotateX(72deg) rotate(35deg) scale(1.18)}}
+@media(max-width:480px){.god-character-wrap{top:43%;width:min(88vw,390px);height:56vh}.god-message{top:77%}}
+@media(prefers-reduced-motion:reduce){.god-character-wrap,.god-sigil{animation-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
@@ -107,7 +125,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
         <button class="btn secondary" data-nav="achievementsScreen">🏆 実績</button>
       </div>
     </div>
-    <p class="footer">Mount Quest v0.9 絶対神版</p>
+    <p class="footer">Mount Quest v1.0 絶対神キャラクター版</p>
   </section>
 
   <section id="setupScreen" class="screen">
@@ -148,7 +166,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
       <div id="heroReserve" class="reserve"></div>
       <div id="board" class="board n4" aria-label="ゲーム盤"></div>
       <div id="demonReserve" class="reserve"></div>
-      <div class="game-actions"><button id="godBtn" class="btn god-btn hidden">✨ 絶対神に問う</button><button id="undoBtn" class="btn secondary">↩ 一手戻る</button><button id="resetBtn" class="btn secondary">最初から</button><button id="rulesBtn" class="btn secondary">遊び方</button></div>
+      <div class="game-actions"><button id="godBtn" class="btn god-btn hidden"><img class="god-btn-icon" src="assets/absolute-god.png" alt="" onerror="this.style.display='none'"> <span>絶対神に問う</span></button><button id="undoBtn" class="btn secondary">↩ 一手戻る</button><button id="resetBtn" class="btn secondary">最初から</button><button id="rulesBtn" class="btn secondary">遊び方</button></div>
     </div>
   </section>
 
@@ -162,7 +180,11 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
 
 
 <div id="godOverlay" class="god-overlay" aria-hidden="true">
-  <div class="god-beam"></div><div class="god-halo"></div>
+  <div class="god-beam"></div><div class="god-halo"></div><div class="god-sigil"></div>
+  <div class="god-character-wrap">
+    <img id="godCharacter" class="god-character" src="assets/absolute-god.png" alt="絶対神" onerror="this.style.display='none';document.getElementById('godFallback').style.display='block'">
+    <div id="godFallback" class="god-character-fallback" aria-hidden="true">✨👑✨</div>
+  </div>
   <div class="god-message"><strong>絶対神降臨</strong><span id="godSubText">運命の一手を授けよう</span></div>
 </div>
 <div id="victoryFx" class="victory-overlay" aria-hidden="true">
@@ -254,7 +276,7 @@ function undoMove(){
 }
 function startGame(){config={mode:selected('mode'),size:+selected('size'),difficulty:selected('difficulty'),first:selected('first'),godHelp:selected('godHelp')};if(config.first==='random')config.first=Math.random()<.5?'hero':'demon';rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];aiThinking=false;aiJobId++;history=[];godHint=null;godThinking=false;godJobId++;lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;godHint=null;godThinking=false;godJobId++;unlock('firstGame');showScreen('gameScreen');renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}
 $('#launchBtn').addEventListener('click',startGame);
-function renderGame(){updateUndoButton();const godBtn=$('#godBtn');if(godBtn){const show=config.mode==='local'&&config.godHelp==='on'&&!gameOver;godBtn.classList.toggle('hidden',!show);godBtn.disabled=godThinking;godBtn.textContent=godThinking?'✨ 神託を受信中…':'✨ 絶対神に問う'}const st=$('#status');const turnChanged=lastRenderedTurn!==null&&lastRenderedTurn!==state.turn;st.textContent=gameOver?'対局終了':aiThinking?'魔王AIが思考中…':`${PLAYER_NAMES[state.turn]}の手番`;st.className=`status ${state.turn===0?'hero-side':'demon-side'}`;if(turnChanged){st.classList.add('turn-change');setTimeout(()=>st.classList.remove('turn-change'),520)}lastRenderedTurn=state.turn;renderReserve('#heroReserve',0);renderReserve('#demonReserve',1);const board=$('#board');board.className=`board n${rules.n}`;board.innerHTML='';for(let i=0;i<state.board.length;i++){const c=document.createElement('button');c.className='cell';c.type='button';if(selection?.src===i)c.classList.add('selected');if(winningLine.includes(i))c.classList.add('winning');if(i===lastMoveDst)c.classList.add('last-move');if(godHint?.src===i)c.classList.add('god-source');if(godHint?.dst===i)c.classList.add('god-target');if(selection&&state.legal({src:selection.src,dst:i,size:selection.size}))c.classList.add('legal-target');const p=state.top(i);if(p){const d=document.createElement('div');d.className=`board-piece p${p.player} s${p.size}`;if(i===lastMoveDst)d.classList.add(returnAnimation?'piece-return':(lastMoveWasCover?'piece-cover':'piece-enter'));d.innerHTML=`<span class="turn-aura"></span><img class="piece-img" src="${PIECES[p.player][p.size-1].image}" alt="${PIECES[p.player][p.size-1].name}" onerror="this.replaceWith(document.createTextNode('${PIECES[p.player][p.size-1].emoji}'))"><span class="badge">${p.size}</span>`;c.appendChild(d)}c.addEventListener('click',()=>cellClick(i));board.appendChild(c)}}
+function renderGame(){updateUndoButton();const godBtn=$('#godBtn');if(godBtn){const show=config.mode==='local'&&config.godHelp==='on'&&!gameOver;godBtn.classList.toggle('hidden',!show);godBtn.disabled=godThinking;godBtn.querySelector('span').textContent=godThinking?'神託を受信中…':'絶対神に問う'}const st=$('#status');const turnChanged=lastRenderedTurn!==null&&lastRenderedTurn!==state.turn;st.textContent=gameOver?'対局終了':aiThinking?'魔王AIが思考中…':`${PLAYER_NAMES[state.turn]}の手番`;st.className=`status ${state.turn===0?'hero-side':'demon-side'}`;if(turnChanged){st.classList.add('turn-change');setTimeout(()=>st.classList.remove('turn-change'),520)}lastRenderedTurn=state.turn;renderReserve('#heroReserve',0);renderReserve('#demonReserve',1);const board=$('#board');board.className=`board n${rules.n}`;board.innerHTML='';for(let i=0;i<state.board.length;i++){const c=document.createElement('button');c.className='cell';c.type='button';if(selection?.src===i)c.classList.add('selected');if(winningLine.includes(i))c.classList.add('winning');if(i===lastMoveDst)c.classList.add('last-move');if(godHint?.src===i)c.classList.add('god-source');if(godHint?.dst===i)c.classList.add('god-target');if(selection&&state.legal({src:selection.src,dst:i,size:selection.size}))c.classList.add('legal-target');const p=state.top(i);if(p){const d=document.createElement('div');d.className=`board-piece p${p.player} s${p.size}`;if(i===lastMoveDst)d.classList.add(returnAnimation?'piece-return':(lastMoveWasCover?'piece-cover':'piece-enter'));d.innerHTML=`<span class="turn-aura"></span><img class="piece-img" src="${PIECES[p.player][p.size-1].image}" alt="${PIECES[p.player][p.size-1].name}" onerror="this.replaceWith(document.createTextNode('${PIECES[p.player][p.size-1].emoji}'))"><span class="badge">${p.size}</span>`;c.appendChild(d)}c.addEventListener('click',()=>cellClick(i));board.appendChild(c)}}
 function renderReserve(sel,player){const el=$(sel);el.innerHTML=`<div class="reserve-title">${PLAYER_NAMES[player]}の持ち駒</div>`;PIECES[player].forEach(piece=>{const count=state.reserves[player][piece.size-1],b=document.createElement('button');b.type='button';b.className='reserve-piece';if(selection?.src===null&&selection.size===piece.size&&state.turn===player)b.classList.add('selected');if(godHint?.src===null&&godHint?.size===piece.size&&state.turn===player)b.classList.add('god-source');b.disabled=gameOver||aiThinking||state.turn!==player||count===0||(config.mode==='ai'&&player===1);b.innerHTML=`<img class="piece-img" src="${piece.image}" alt="${piece.name}" onerror="this.replaceWith(document.createTextNode('${piece.emoji}'))"><span>${piece.name}</span><span class="piece-count">×${count}</span>`;b.addEventListener('click',()=>{selection={src:null,size:piece.size};renderGame()});el.appendChild(b)})}
 function cellClick(i){godHint=null;if(gameOver||aiThinking||(config.mode==='ai'&&state.turn===1))return;if(selection){const m={src:selection.src,dst:i,size:selection.size};if(state.legal(m)){playMove(m,false);return}toast('そこには置けません')}const p=state.top(i);if(p&&p.player===state.turn){selection={src:i,size:p.size};renderGame()}}
 
