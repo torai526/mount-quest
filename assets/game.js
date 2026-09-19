@@ -4,6 +4,6 @@ document
 .getElementById("startBtn")
 .addEventListener("click", () => {
 
-  alert("冒険開始！（次回実装）");
+  alert("マウントクエスト開発中！");
 
 });
