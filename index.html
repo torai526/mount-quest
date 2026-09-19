@@ -8,7 +8,67 @@
 <style>
 :root{--bg:#070b14;--panel:#111a2e;--panel2:#18243d;--text:#f8fafc;--sub:#bec9db;--gold:#fbbf24;--blue:#3b82f6;--red:#ef4444;--cell:#263652;--ok:#22c55e;--line:#ffffff1f}
 *{box-sizing:border-box}html{min-height:100%;background:var(--bg)}body{margin:0;min-height:100svh;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic UI",sans-serif;background:radial-gradient(circle at top,#273b68 0,#111827 38%,#070b14 100%);padding:max(14px,env(safe-area-inset-top)) 14px max(18px,env(safe-area-inset-bottom))}
-button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{display:none}.screen.active{display:block}.card{background:#111a2ee8;border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 60px #0007;padding:22px}.hero{text-align:center;padding:42px 20px}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:.14em;font-size:.82rem}.hero h1{font-size:clamp(2rem,8vw,3.5rem);line-height:1.1;margin:12px 0;text-shadow:0 5px 25px #2563eb88}.subtitle{color:var(--sub);line-height:1.7}.menu{display:grid;gap:12px;margin-top:28px}.btn{border:0;border-radius:14px;padding:14px 18px;font-weight:800;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);cursor:pointer;box-shadow:0 9px 20px #2563eb42}.btn:active{transform:translateY(1px)}.btn.secondary{background:#25324a;box-shadow:none}.btn.danger{background:linear-gradient(135deg,#ef4444,#b91c1c)}.btn.ghost{background:transparent;border:1px solid #ffffff2c;box-shadow:none}.title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.title-row h2{margin:0;font-size:1.35rem}.field{margin:18px 0}.field label{display:block;font-weight:800;margin-bottom:9px}.segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.segmented.two{grid-template-columns:repeat(2,1fr)}.segmented.four{grid-template-columns:repeat(2,1fr)}.choice{position:absolute;opacity:0;pointer-events:none}.choice+span{display:block;text-align:center;padding:11px 8px;border:1px solid #ffffff20;background:#1c2941;border-radius:12px;color:var(--sub);font-weight:700;cursor:pointer}.choice:checked+span{color:white;background:#234f9c;border-color:#60a5fa;box-shadow:0 0 0 2px #60a5fa33}.hidden{display:none!important}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.brand{font-weight:900;color:var(--gold)}.status{text-align:center;font-size:1.05rem;font-weight:900;margin:10px 0 12px;min-height:1.6em}.status.hero-side{color:#93c5fd}.status.demon-side{color:#fca5a5}.game-layout{display:grid;gap:12px}.reserve{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px;background:#10192b;border:1px solid var(--line);border-radius:16px}.reserve-title{grid-column:1/-1;text-align:center;font-size:.82rem;font-weight:800;color:var(--sub)}.reserve-piece{min-height:68px;border:1px solid #ffffff1d;border-radius:13px;background:#1b2943;color:white;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:5px}.reserve-piece.selected{outline:3px solid var(--gold);background:#294876}.reserve-piece:disabled{opacity:.35;cursor:not-allowed}.piece-emoji{font-size:clamp(1.4rem,6vw,2.2rem)}.piece-count{font-weight:900}.board{display:grid;gap:7px;padding:9px;background:#172239;border:1px solid #ffffff1c;border-radius:18px;aspect-ratio:1;width:min(100%,520px);margin:auto}.board.n3{grid-template-columns:repeat(3,1fr)}.board.n4{grid-template-columns:repeat(4,1fr)}.cell{position:relative;border:0;border-radius:12px;background:linear-gradient(145deg,#334761,#22314a);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;min-width:0;box-shadow:inset 0 1px 0 #ffffff17}.cell.selected{outline:4px solid var(--gold);z-index:1}.cell.winning{animation:pulse 700ms infinite alternate;outline:4px solid var(--ok)}@keyframes pulse{to{filter:brightness(1.45)}}.board-piece{width:var(--size);height:var(--size);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 5px 12px #0007,inset 0 2px 1px #ffffff4d;border:3px solid #ffffff55}.board-piece.p0{background:radial-gradient(circle at 30% 25%,#60a5fa,#1d4ed8 58%,#172554)}.board-piece.p1{background:radial-gradient(circle at 30% 25%,#fb7185,#b91c1c 58%,#450a0a)}.board-piece.s1{--size:48%}.board-piece.s2{--size:70%}.board-piece.s3{--size:91%}.board-piece .piece-emoji{font-size:clamp(1rem,7vw,2.8rem);filter:drop-shadow(0 2px 2px #0008)}.piece-img{width:92%;height:92%;object-fit:contain;filter:drop-shadow(0 3px 3px #0008)}.reserve-piece .piece-img{width:46px;height:46px;flex:0 0 46px}.badge{position:absolute;right:-6px;bottom:-6px;background:#050914;border:1px solid #ffffff44;border-radius:999px;padding:2px 5px;font-size:.63rem;font-weight:900}.game-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#050914e8;color:white;border:1px solid #ffffff2e;border-radius:999px;padding:11px 18px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:20;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:20px;z-index:30}.modal.open{display:flex}.modal-card{width:min(100%,430px);text-align:center}.modal-card h2{font-size:2rem;margin:5px}.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#1a2740;border-radius:14px;padding:15px;text-align:center}.stat strong{display:block;font-size:1.65rem;color:var(--gold)}.achievement-list{display:grid;gap:9px}.achievement{display:flex;gap:12px;align-items:center;background:#19263e;border-radius:13px;padding:12px;opacity:.45}.achievement.unlocked{opacity:1;border:1px solid #fbbf2455}.achievement-icon{font-size:1.8rem}.achievement div{text-align:left}.achievement strong{display:block}.achievement small{color:var(--sub)}.note{color:var(--sub);font-size:.85rem;line-height:1.5}.footer{text-align:center;color:#8290a8;font-size:.76rem;margin-top:14px}@media(min-width:640px){.segmented.four{grid-template-columns:repeat(4,1fr)}.card{padding:28px}.reserve-piece{min-height:78px}}
+button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{display:none}.screen.active{display:block}.card{background:#111a2ee8;border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 60px #0007;padding:22px}.hero{text-align:center;padding:42px 20px}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:.14em;font-size:.82rem}.hero h1{font-size:clamp(2rem,8vw,3.5rem);line-height:1.1;margin:12px 0;text-shadow:0 5px 25px #2563eb88}.subtitle{color:var(--sub);line-height:1.7}.menu{display:grid;gap:12px;margin-top:28px}.btn{border:0;border-radius:14px;padding:14px 18px;font-weight:800;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);cursor:pointer;box-shadow:0 9px 20px #2563eb42}.btn:active{transform:translateY(1px)}.btn.secondary{background:#25324a;box-shadow:none}.btn.danger{background:linear-gradient(135deg,#ef4444,#b91c1c)}.btn.ghost{background:transparent;border:1px solid #ffffff2c;box-shadow:none}.title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.title-row h2{margin:0;font-size:1.35rem}.field{margin:18px 0}.field label{display:block;font-weight:800;margin-bottom:9px}.segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.segmented.two{grid-template-columns:repeat(2,1fr)}.segmented.four{grid-template-columns:repeat(2,1fr)}.choice{position:absolute;opacity:0;pointer-events:none}.choice+span{display:block;text-align:center;padding:11px 8px;border:1px solid #ffffff20;background:#1c2941;border-radius:12px;color:var(--sub);font-weight:700;cursor:pointer}.choice:checked+span{color:white;background:#234f9c;border-color:#60a5fa;box-shadow:0 0 0 2px #60a5fa33}.hidden{display:none!important}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.brand{font-weight:900;color:var(--gold)}.status{text-align:center;font-size:1.05rem;font-weight:900;margin:10px 0 12px;min-height:1.6em}.status.hero-side{color:#93c5fd}.status.demon-side{color:#fca5a5}.game-layout{display:grid;gap:12px}.reserve{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px;background:#10192b;border:1px solid var(--line);border-radius:16px}.reserve-title{grid-column:1/-1;text-align:center;font-size:.82rem;font-weight:800;color:var(--sub)}.reserve-piece{min-height:68px;border:1px solid #ffffff1d;border-radius:13px;background:#1b2943;color:white;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:5px}.reserve-piece.selected{outline:3px solid var(--gold);background:#294876}.reserve-piece:disabled{opacity:.35;cursor:not-allowed}.piece-emoji{font-size:clamp(1.4rem,6vw,2.2rem)}.piece-count{font-weight:900}.board{display:grid;gap:7px;padding:9px;background:#172239;border:1px solid #ffffff1c;border-radius:18px;aspect-ratio:1;width:min(100%,520px);margin:auto}.board.n3{grid-template-columns:repeat(3,1fr)}.board.n4{grid-template-columns:repeat(4,1fr)}.cell{position:relative;border:0;border-radius:12px;background:linear-gradient(145deg,#334761,#22314a);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;min-width:0;box-shadow:inset 0 1px 0 #ffffff17}.cell.selected{outline:4px solid var(--gold);z-index:1}.cell.winning{animation:pulse 700ms infinite alternate;outline:4px solid var(--ok)}@keyframes pulse{to{filter:brightness(1.45)}}.board-piece{width:var(--size);height:var(--size);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 5px 12px #0007,inset 0 2px 1px #ffffff4d;border:3px solid #ffffff55}.board-piece.p0{background:radial-gradient(circle at 30% 25%,#60a5fa,#1d4ed8 58%,#172554)}.board-piece.p1{background:radial-gradient(circle at 30% 25%,#fb7185,#b91c1c 58%,#450a0a)}.board-piece.s1{--size:48%}.board-piece.s2{--size:70%}.board-piece.s3{--size:91%}.board-piece .piece-emoji{font-size:clamp(1rem,7vw,2.8rem);filter:drop-shadow(0 2px 2px #0008)}.piece-img{width:92%;height:92%;object-fit:contain;filter:drop-shadow(0 3px 3px #0008)}.reserve-piece .piece-img{width:46px;height:46px;flex:0 0 46px}.badge{position:absolute;right:-6px;bottom:-6px;background:#050914;border:1px solid #ffffff44;border-radius:999px;padding:2px 5px;font-size:.63rem;font-weight:900}.game-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#050914e8;color:white;border:1px solid #ffffff2e;border-radius:999px;padding:11px 18px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:20;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:20px;z-index:30}.modal.open{display:flex}.modal-card{width:min(100%,430px);text-align:center}.modal-card h2{font-size:2rem;margin:5px}.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#1a2740;border-radius:14px;padding:15px;text-align:center}.stat strong{display:block;font-size:1.65rem;color:var(--gold)}.achievement-list{display:grid;gap:9px}.achievement{display:flex;gap:12px;align-items:center;background:#19263e;border-radius:13px;padding:12px;opacity:.45}.achievement.unlocked{opacity:1;border:1px solid #fbbf2455}.achievement-icon{font-size:1.8rem}.achievement div{text-align:left}.achievement strong{display:block}.achievement small{color:var(--sub)}.note{color:var(--sub);font-size:.85rem;line-height:1.5}.footer{text-align:center;color:#8290a8;font-size:.76rem;margin-top:14px}@media(min-width:640px){.segmented.four{grid-template-columns:repeat(4,1fr)}.card{padding:28px}.reserve-piece{min-height:78px}}
+
+/* v0.5 マウント演出 */
+.sound-choice{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.fx-layer{position:fixed;inset:0;pointer-events:none;z-index:80;overflow:hidden}
+.fx-flash{position:absolute;inset:0;opacity:0;background:radial-gradient(circle at var(--fx-x,50%) var(--fx-y,50%),#fff 0,#fbbf24aa 12%,transparent 46%)}
+.fx-layer.active .fx-flash{animation:fxFlash .58s ease-out}
+.fx-ring{position:absolute;left:var(--fx-x,50%);top:var(--fx-y,50%);width:30px;height:30px;border:5px solid #fde68a;border-radius:50%;opacity:0;transform:translate(-50%,-50%) scale(.2);box-shadow:0 0 24px #fbbf24,0 0 60px #ef4444}
+.fx-layer.active .fx-ring{animation:fxRing .7s cubic-bezier(.12,.75,.3,1)}
+.fx-particle{position:absolute;left:var(--fx-x,50%);top:var(--fx-y,50%);width:10px;height:10px;border-radius:2px;background:var(--particle,#fbbf24);box-shadow:0 0 10px var(--particle,#fbbf24);opacity:0}
+.fx-layer.active .fx-particle{animation:fxParticle .85s ease-out var(--delay,0ms)}
+.fx-banner{position:absolute;left:50%;top:42%;width:min(94vw,620px);transform:translate(-50%,-50%) scale(.65);text-align:center;opacity:0}
+.fx-layer.active .fx-banner{animation:fxBanner 1.15s cubic-bezier(.16,.8,.25,1)}
+.fx-kicker{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;color:#fff4c2;font-size:clamp(.9rem,4vw,1.25rem);font-weight:900;letter-spacing:.22em;text-shadow:0 2px 4px #000,0 0 14px #f59e0b}
+.fx-title{margin:.05em 0;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(2.6rem,14vw,6rem);font-weight:1000;letter-spacing:.08em;color:#fff;background:linear-gradient(#fff,#fde68a 38%,#f59e0b 72%,#dc2626);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 4px 0 #7c2d12) drop-shadow(0 0 18px #f59e0b)}
+.fx-sub{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;color:white;font-size:clamp(1rem,5vw,1.45rem);font-weight:900;text-shadow:0 3px 4px #000,0 0 14px #2563eb}
+.shake{animation:boardShake .48s cubic-bezier(.36,.07,.19,.97)}
+@keyframes fxFlash{0%{opacity:0}12%{opacity:1}100%{opacity:0}}
+@keyframes fxRing{0%{opacity:1;transform:translate(-50%,-50%) scale(.15)}75%{opacity:.8}100%{opacity:0;transform:translate(-50%,-50%) scale(12)}}
+@keyframes fxParticle{0%{opacity:1;transform:translate(-50%,-50%) rotate(0) translateX(0) scale(1.3)}100%{opacity:0;transform:translate(-50%,-50%) rotate(var(--angle)) translateX(var(--distance)) scale(.25)}}
+@keyframes fxBanner{0%{opacity:0;transform:translate(-50%,-50%) scale(.45) rotate(-3deg)}18%{opacity:1;transform:translate(-50%,-50%) scale(1.09) rotate(1deg)}30%{transform:translate(-50%,-50%) scale(1)}78%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-58%) scale(1.08)}}
+@keyframes boardShake{0%,100%{transform:translate(0)}15%{transform:translate(-7px,3px)}30%{transform:translate(6px,-3px)}45%{transform:translate(-4px,2px)}60%{transform:translate(4px,-1px)}80%{transform:translate(-2px,1px)}}
+@media(prefers-reduced-motion:reduce){.fx-flash,.fx-ring,.fx-particle,.fx-banner,.shake{animation-duration:.01ms!important;animation-iteration-count:1!important}.fx-layer.active .fx-banner{opacity:1}}
+
+
+/* v0.6 追加アニメーション */
+.cell{overflow:visible;transition:background .22s ease,filter .22s ease,transform .16s ease}
+.cell:hover{filter:brightness(1.1)}
+.cell.legal-target{animation:targetGlow 1s ease-in-out infinite alternate;box-shadow:inset 0 0 0 2px #fbbf2466,0 0 14px #fbbf2433}
+.cell.last-move{box-shadow:inset 0 0 0 3px #93c5fd66,0 0 15px #3b82f644}
+.board-piece{will-change:transform,opacity;transform-origin:center bottom}
+.board-piece.piece-enter{animation:pieceDrop .48s cubic-bezier(.2,1.2,.34,1)}
+.board-piece.piece-cover{animation:pieceCover .66s cubic-bezier(.15,.85,.2,1.15)}
+.board-piece.piece-return{animation:pieceReturn .45s ease-out}
+.reserve-piece{transition:transform .18s ease,background .22s ease,filter .22s ease}
+.reserve-piece:not(:disabled):active{transform:scale(.94)}
+.reserve-piece.selected{animation:selectedPulse .82s ease-in-out infinite alternate}
+.status.turn-change{animation:turnReveal .48s ease-out}
+.turn-aura{position:absolute;inset:-5px;border-radius:50%;pointer-events:none;opacity:0}
+.board-piece.p0 .turn-aura{box-shadow:0 0 18px #60a5fa,0 0 34px #2563eb}
+.board-piece.p1 .turn-aura{box-shadow:0 0 18px #fb7185,0 0 34px #dc2626}
+.board-piece.piece-enter .turn-aura,.board-piece.piece-cover .turn-aura{animation:auraBurst .65s ease-out}
+.victory-overlay{position:fixed;inset:0;z-index:95;pointer-events:none;display:none;overflow:hidden;background:radial-gradient(circle at center,#ffffff10,transparent 60%)}
+.victory-overlay.active{display:block;animation:victoryFade 2.5s ease forwards}
+.victory-rays{position:absolute;left:50%;top:50%;width:150vmax;height:150vmax;transform:translate(-50%,-50%);background:repeating-conic-gradient(from 0deg,#fbbf2426 0 8deg,transparent 8deg 17deg);animation:raysSpin 8s linear infinite}
+.victory-word{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:clamp(3rem,18vw,8rem);font-weight:1000;letter-spacing:.08em;color:white;text-shadow:0 5px 0 #92400e,0 0 18px #fbbf24,0 0 45px #f59e0b;animation:victoryWord 2.15s cubic-bezier(.14,.84,.24,1) forwards;white-space:nowrap}
+.confetti{position:absolute;left:50%;top:-8vh;width:10px;height:18px;border-radius:2px;background:var(--c);animation:confettiFall var(--dur) linear var(--delay) forwards;transform:translateX(var(--x)) rotate(var(--rot))}
+@keyframes pieceDrop{0%{opacity:0;transform:translateY(-65%) scale(.45) rotate(-8deg)}58%{opacity:1;transform:translateY(7%) scale(1.12) rotate(2deg)}78%{transform:translateY(-3%) scale(.96)}100%{transform:none}}
+@keyframes pieceCover{0%{opacity:.3;transform:translateY(-95%) scale(.65)}45%{opacity:1;transform:translateY(4%) scale(1.2)}62%{transform:scale(.88,1.14)}78%{transform:scale(1.1,.92)}100%{transform:none}}
+@keyframes pieceReturn{0%{opacity:.35;transform:scale(.65) rotate(-10deg)}100%{opacity:1;transform:none}}
+@keyframes targetGlow{from{filter:brightness(1);transform:scale(.985)}to{filter:brightness(1.22);transform:scale(1.015)}}
+@keyframes selectedPulse{from{filter:brightness(1);transform:translateY(0)}to{filter:brightness(1.22);transform:translateY(-3px)}}
+@keyframes turnReveal{0%{opacity:.2;transform:translateY(-8px) scale(.94)}100%{opacity:1;transform:none}}
+@keyframes auraBurst{0%{opacity:0;transform:scale(.35)}40%{opacity:1}100%{opacity:0;transform:scale(1.6)}}
+@keyframes victoryFade{0%{opacity:0}12%,78%{opacity:1}100%{opacity:0}}
+@keyframes raysSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes victoryWord{0%{opacity:0;transform:translate(-50%,-50%) scale(.25) rotate(-7deg)}22%{opacity:1;transform:translate(-50%,-50%) scale(1.18) rotate(2deg)}36%{transform:translate(-50%,-50%) scale(.96)}55%,80%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-65%) scale(1.12)}}
+@keyframes confettiFall{0%{opacity:1;translate:0 0;rotate:0deg}100%{opacity:.2;translate:var(--drift) 118vh;rotate:900deg}}
+@media(max-width:480px){.game-actions{grid-template-columns:1fr}.victory-word{font-size:clamp(2.6rem,17vw,5rem)}}
+@media(prefers-reduced-motion:reduce){.piece-enter,.piece-cover,.piece-return,.turn-change,.victory-overlay,.victory-word,.confetti,.legal-target,.reserve-piece.selected{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
 </style>
 </head>
 <body>
@@ -24,7 +84,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
         <button class="btn secondary" data-nav="achievementsScreen">🏆 実績</button>
       </div>
     </div>
-    <p class="footer">Mount Quest v0.2</p>
+    <p class="footer">Mount Quest v0.6 アニメーション版</p>
   </section>
 
   <section id="setupScreen" class="screen">
@@ -49,6 +109,11 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
         <label><input class="choice" type="radio" name="first" value="demon"><span>後手</span></label>
         <label><input class="choice" type="radio" name="first" value="random"><span>ランダム</span></label>
       </div></div>
+
+      <div class="field"><label>効果音</label><div class="sound-choice">
+        <label><input class="choice" type="radio" name="sound" value="on" checked><span>🔊 オン</span></label>
+        <label><input class="choice" type="radio" name="sound" value="off"><span>🔇 オフ</span></label>
+      </div></div>
       <p id="modeNote" class="note">AI対戦では、あなたは勇者軍、AIは魔王軍で固定されます。</p>
       <button id="launchBtn" class="btn" style="width:100%">出撃する</button>
     </div>
@@ -61,7 +126,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
       <div id="heroReserve" class="reserve"></div>
       <div id="board" class="board n4" aria-label="ゲーム盤"></div>
       <div id="demonReserve" class="reserve"></div>
-      <div class="game-actions"><button id="resetBtn" class="btn secondary">最初から</button><button id="rulesBtn" class="btn secondary">遊び方</button></div>
+      <div class="game-actions"><button id="undoBtn" class="btn secondary">↩ 一手戻る</button><button id="resetBtn" class="btn secondary">最初から</button><button id="rulesBtn" class="btn secondary">遊び方</button></div>
     </div>
   </section>
 
@@ -71,6 +136,15 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
 
 <div id="resultModal" class="modal"><div class="card modal-card"><div id="resultIcon" style="font-size:3rem">⚔️</div><h2 id="resultTitle">勇者軍の勝利！</h2><p id="resultText" class="subtitle"></p><div class="menu"><button id="rematchBtn" class="btn">もう一度</button><button id="resultHomeBtn" class="btn secondary">タイトルへ</button></div></div></div>
 <div id="rulesModal" class="modal"><div class="card modal-card"><h2>遊び方</h2><p class="subtitle" style="text-align:left">自軍の持ち駒、または盤上で一番上にある自軍の駒を選び、マスを選択します。大きな駒は小さな駒に重ねられます。縦・横・斜めのいずれか1列を自軍の駒でそろえると勝利です。</p><button id="closeRulesBtn" class="btn">閉じる</button></div></div>
+
+
+<div id="victoryFx" class="victory-overlay" aria-hidden="true">
+  <div class="victory-rays"></div><div id="victoryWord" class="victory-word">VICTORY!</div>
+</div>
+<div id="mountFx" class="fx-layer" aria-hidden="true">
+  <div class="fx-flash"></div><div class="fx-ring"></div>
+  <div class="fx-banner"><div class="fx-kicker" id="fxKicker">必殺</div><div class="fx-title">MOUNT!</div><div class="fx-sub" id="fxSub">勇者が敵を制圧！</div></div>
+</div>
 <div id="toast" class="toast"></div>
 
 <script>
@@ -88,8 +162,12 @@ const ACHIEVEMENTS=[
   {id:"expertWin",icon:"👑",name:"伝説の勇者",desc:"最強AIに勝利する"},
   {id:"tenWins",icon:"🏆",name:"百戦錬磨への道",desc:"AI対戦で10勝する"}
 ];
-let config={mode:"ai",size:4,difficulty:"medium",first:"hero"};
+let config={mode:"ai",size:4,difficulty:"medium",first:"hero",sound:"on"};
 let rules=null,state=null,selection=null,gameOver=false,winningLine=[],aiThinking=false;
+let aiJobId=0;
+let history=[];
+let lastMoveDst=null,lastMoveWasCover=false,lastRenderedTurn=null,returnAnimation=false;
+const AI_LIMITS={easy:80,medium:180,hard:450,expert:950};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 function defaultData(){return {games:0,wins:0,losses:0,draws:0,covers:0,byDifficulty:{easy:{w:0,l:0},medium:{w:0,l:0},hard:{w:0,l:0},expert:{w:0,l:0}},unlocked:{}}}
 function loadData(){try{return {...defaultData(),...JSON.parse(localStorage.getItem("mountQuestData")||"{}")}}catch{return defaultData()}}
@@ -110,26 +188,227 @@ class State{
   apply(m){const b=this.board.map(s=>s.map(p=>({...p}))),r=this.reserves.map(x=>[...x]);let covered=false;if(m.src===null){r[this.turn][m.size-1]--;covered=b[m.dst].length>0;b[m.dst].push({player:this.turn,size:m.size})}else{const p=b[m.src].pop();covered=b[m.dst].length>0;b[m.dst].push(p)}return {state:new State(this.rules,b,r,1-this.turn),covered}}
   moves(){const a=[];for(let z=1;z<=3;z++)if(this.reserves[this.turn][z-1]>0)for(let d=0;d<this.board.length;d++){const m={src:null,dst:d,size:z};if(this.legal(m))a.push(m)}for(let s=0;s<this.board.length;s++){const p=this.top(s);if(p?.player===this.turn)for(let d=0;d<this.board.length;d++){const m={src:s,dst:d,size:p.size};if(this.legal(m))a.push(m)}}return a}
 }
-function startGame(){config={mode:selected('mode'),size:+selected('size'),difficulty:selected('difficulty'),first:selected('first')};if(config.first==='random')config.first=Math.random()<.5?'hero':'demon';rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];aiThinking=false;unlock('firstGame');showScreen('gameScreen');renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}
-$('#launchBtn').addEventListener('click',startGame);
-function renderGame(){const st=$('#status');st.textContent=gameOver?'対局終了':aiThinking?'魔王AIが思考中…':`${PLAYER_NAMES[state.turn]}の手番`;st.className=`status ${state.turn===0?'hero-side':'demon-side'}`;renderReserve('#heroReserve',0);renderReserve('#demonReserve',1);const board=$('#board');board.className=`board n${rules.n}`;board.innerHTML='';for(let i=0;i<state.board.length;i++){const c=document.createElement('button');c.className='cell';c.type='button';if(selection?.src===i)c.classList.add('selected');if(winningLine.includes(i))c.classList.add('winning');const p=state.top(i);if(p){const d=document.createElement('div');d.className=`board-piece p${p.player} s${p.size}`;d.innerHTML=`<img class="piece-img" src="${PIECES[p.player][p.size-1].image}" alt="${PIECES[p.player][p.size-1].name}" onerror="this.replaceWith(document.createTextNode('${PIECES[p.player][p.size-1].emoji}'))"><span class="badge">${p.size}</span>`;c.appendChild(d)}c.addEventListener('click',()=>cellClick(i));board.appendChild(c)}}
+function cloneStateSnapshot(s){
+  return new State(
+    s.rules,
+    s.board.map(stack=>stack.map(piece=>({...piece}))),
+    s.reserves.map(counts=>[...counts]),
+    s.turn
+  );
+}
+function saveHistory(){
+  history.push({state:cloneStateSnapshot(state),gameOver,winningLine:[...winningLine]});
+  if(history.length>80)history.shift();
+}
+function updateUndoButton(){
+  const button=$('#undoBtn');
+  if(button)button.disabled=history.length===0||(config.mode==='ai'&&state?.turn===0&&history.length<2&&!gameOver);
+}
+function undoMove(){
+  if(!state||history.length===0){toast('戻せる手がありません');return}
+  aiJobId++;
+  aiThinking=false;
+  $('#resultModal').classList.remove('open');
+  let steps=1;
+  if(config.mode==='ai'&&state.turn===0&&history.length>=2)steps=2;
+  let previous=null;
+  while(steps-- > 0&&history.length)previous=history.pop();
+  if(!previous)return;
+  state=cloneStateSnapshot(previous.state);
+  gameOver=false;
+  winningLine=[];
+  selection=null;
+  lastMoveDst=null;lastMoveWasCover=false;returnAnimation=true;
+  renderGame();
+  updateUndoButton();
+  toast(config.mode==='ai'&&state.turn===0?'直前の1往復を戻しました':'一手戻しました');
+}
+function startGame(){config={mode:selected('mode'),size:+selected('size'),difficulty:selected('difficulty'),first:selected('first'),sound:selected('sound')};if(config.first==='random')config.first=Math.random()<.5?'hero':'demon';rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];aiThinking=false;aiJobId++;history=[];lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;unlock('firstGame');showScreen('gameScreen');renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}
+$('#launchBtn').addEventListener('click',()=>{config.sound=selected('sound');ensureAudio();startGame()});
+function renderGame(){updateUndoButton();const st=$('#status');const turnChanged=lastRenderedTurn!==null&&lastRenderedTurn!==state.turn;st.textContent=gameOver?'対局終了':aiThinking?'魔王AIが思考中…':`${PLAYER_NAMES[state.turn]}の手番`;st.className=`status ${state.turn===0?'hero-side':'demon-side'}`;if(turnChanged){st.classList.add('turn-change');setTimeout(()=>st.classList.remove('turn-change'),520)}lastRenderedTurn=state.turn;renderReserve('#heroReserve',0);renderReserve('#demonReserve',1);const board=$('#board');board.className=`board n${rules.n}`;board.innerHTML='';for(let i=0;i<state.board.length;i++){const c=document.createElement('button');c.className='cell';c.type='button';if(selection?.src===i)c.classList.add('selected');if(winningLine.includes(i))c.classList.add('winning');if(i===lastMoveDst)c.classList.add('last-move');if(selection&&state.legal({src:selection.src,dst:i,size:selection.size}))c.classList.add('legal-target');const p=state.top(i);if(p){const d=document.createElement('div');d.className=`board-piece p${p.player} s${p.size}`;if(i===lastMoveDst)d.classList.add(returnAnimation?'piece-return':(lastMoveWasCover?'piece-cover':'piece-enter'));d.innerHTML=`<span class="turn-aura"></span><img class="piece-img" src="${PIECES[p.player][p.size-1].image}" alt="${PIECES[p.player][p.size-1].name}" onerror="this.replaceWith(document.createTextNode('${PIECES[p.player][p.size-1].emoji}'))"><span class="badge">${p.size}</span>`;c.appendChild(d)}c.addEventListener('click',()=>cellClick(i));board.appendChild(c)}}
 function renderReserve(sel,player){const el=$(sel);el.innerHTML=`<div class="reserve-title">${PLAYER_NAMES[player]}の持ち駒</div>`;PIECES[player].forEach(piece=>{const count=state.reserves[player][piece.size-1],b=document.createElement('button');b.type='button';b.className='reserve-piece';if(selection?.src===null&&selection.size===piece.size&&state.turn===player)b.classList.add('selected');b.disabled=gameOver||aiThinking||state.turn!==player||count===0||(config.mode==='ai'&&player===1);b.innerHTML=`<img class="piece-img" src="${piece.image}" alt="${piece.name}" onerror="this.replaceWith(document.createTextNode('${piece.emoji}'))"><span>${piece.name}</span><span class="piece-count">×${count}</span>`;b.addEventListener('click',()=>{selection={src:null,size:piece.size};renderGame()});el.appendChild(b)})}
 function cellClick(i){if(gameOver||aiThinking||(config.mode==='ai'&&state.turn===1))return;if(selection){const m={src:selection.src,dst:i,size:selection.size};if(state.legal(m)){playMove(m,false);return}toast('そこには置けません')}const p=state.top(i);if(p&&p.player===state.turn){selection={src:i,size:p.size};renderGame()}}
-function playMove(move,fromAI){const mover=state.turn,result=state.apply(move);state=result.state;selection=null;if(result.covered){const d=loadData();d.covers++;saveData(d);if(d.covers>=10)unlock('cover10');toast(`${PIECES[mover][move.size-1].name}がマウント！`)}const wins=state.winners();if(wins.length){const own=wins.find(x=>x.player===mover)||wins[0];finish(own.player,own.line);return}renderGame();if(config.mode==='ai'&&state.turn===1&&!fromAI)requestAI()}
-function finish(winner,line){gameOver=true;winningLine=line;renderGame();if(config.mode==='ai'){const d=loadData();d.games++;if(winner===0){d.wins++;d.byDifficulty[config.difficulty].w++}else{d.losses++;d.byDifficulty[config.difficulty].l++}saveData(d);if(winner===0){unlock('firstWin');if(config.difficulty==='hard')unlock('hardWin');if(config.difficulty==='expert')unlock('expertWin');if(d.wins>=10)unlock('tenWins')}}$('#resultIcon').textContent=winner===0?'✨⚔️✨':'🔥👑🔥';$('#resultTitle').textContent=`${PLAYER_NAMES[winner]}の勝利！`;$('#resultText').textContent=winner===0?'勇者軍が魔王軍を打ち破りました。':'魔王軍が世界を支配しました。';setTimeout(()=>$('#resultModal').classList.add('open'),450)}
-function requestAI(){aiThinking=true;renderGame();setTimeout(()=>{const m=AI.choose(state,config.difficulty);aiThinking=false;if(m)playMove(m,true);else renderGame()},80)}
-class AI{
- static choose(s,diff){let moves=s.moves();if(!moves.length)return null;for(const m of moves){const ns=s.apply(m).state;if(ns.winners().some(w=>w.player===s.turn))return m}if(diff==='easy'){const safe=this.safeMoves(s,moves);const pool=Math.random()<.65?moves:(safe.length?safe:moves);return pool[Math.floor(Math.random()*pool.length)]}const safe=this.safeMoves(s,moves);if(safe.length)moves=safe;const setting={medium:[2,120],hard:[3,350],expert:[5,900]}[diff]||[2,120];const start=performance.now(),root=s.turn;let best=moves[0];moves=this.order(s,moves,root);for(let depth=1;depth<=setting[0];depth++){let localBest=null,localScore=-Infinity;for(const m of moves){if(performance.now()-start>setting[1])break;const score=this.search(s.apply(m).state,depth-1,-Infinity,Infinity,root,start,setting[1]);if(score>localScore){localScore=score;localBest=m}}if(localBest)best=localBest;else break}return best}
- static safeMoves(s,moves){const me=s.turn;return moves.filter(m=>{const ns=s.apply(m).state;return !ns.moves().some(om=>ns.apply(om).state.winners().some(w=>w.player===1-me))})}
- static search(s,depth,a,b,root,start,limit){if(performance.now()-start>limit)return this.eval(s,root);const ws=s.winners();if(ws.some(w=>w.player===root))return 100000+depth;if(ws.some(w=>w.player===1-root))return -100000-depth;if(depth<=0)return this.eval(s,root);const maximizing=s.turn===root;let val=maximizing?-Infinity:Infinity;const moves=this.order(s,s.moves(),root);if(!moves.length)return 0;for(const m of moves){const v=this.search(s.apply(m).state,depth-1,a,b,root,start,limit);if(maximizing){val=Math.max(val,v);a=Math.max(a,val)}else{val=Math.min(val,v);b=Math.min(b,val)}if(b<=a||performance.now()-start>limit)break}return val}
- static eval(s,root){let score=0;const n=s.rules.n;for(const line of s.rules.lines){let mine=0,opp=0,sizeMine=0,sizeOpp=0;for(const q of line){const p=s.top(q);if(!p)continue;if(p.player===root){mine++;sizeMine+=p.size}else{opp++;sizeOpp+=p.size}}if(mine&&!opp)score+=Math.pow(8,mine)+sizeMine*3;if(opp&&!mine)score-=Math.pow(9,opp)+sizeOpp*3;if(mine===n-1&&!opp)score+=900;if(opp===n-1&&!mine)score-=1100}const centers=n===3?[4]:[5,6,9,10];for(const q of centers){const p=s.top(q);if(p)score+=(p.player===root?1:-1)*(12+p.size*2)}for(let z=0;z<3;z++)score+=(s.reserves[root][z]-s.reserves[1-root][z])*(z+1);return score}
- static order(s,moves,root){const centers=s.rules.n===3?[4]:[5,6,9,10];return [...moves].sort((a,b)=>this.priority(s,b,centers,root)-this.priority(s,a,centers,root))}
- static priority(s,m,centers,root){let v=m.size*4+(centers.includes(m.dst)?15:0)+(s.top(m.dst)?20:0);const ns=s.apply(m).state;if(ns.winners().some(w=>w.player===s.turn))v+=10000;return v}
+
+let audioContext=null;
+function ensureAudio(){
+  if(config.sound!=="on")return null;
+  const AudioCtx=window.AudioContext||window.webkitAudioContext;
+  if(!AudioCtx)return null;
+  if(!audioContext)audioContext=new AudioCtx();
+  if(audioContext.state==="suspended")audioContext.resume().catch(()=>{});
+  return audioContext;
 }
-$('#quitBtn').addEventListener('click',()=>{if(confirm('対局を終了してタイトルへ戻りますか？'))showScreen('homeScreen')});
-$('#resetBtn').addEventListener('click',()=>{if(confirm('同じ設定で最初からやり直しますか？')){rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}});
+function tone(ctx,start,freq,duration,type,gain,slide=0){
+  const osc=ctx.createOscillator(),amp=ctx.createGain();
+  osc.type=type;osc.frequency.setValueAtTime(freq,start);
+  if(slide)osc.frequency.exponentialRampToValueAtTime(Math.max(30,freq+slide),start+duration);
+  amp.gain.setValueAtTime(.0001,start);amp.gain.exponentialRampToValueAtTime(gain,start+.012);amp.gain.exponentialRampToValueAtTime(.0001,start+duration);
+  osc.connect(amp).connect(ctx.destination);osc.start(start);osc.stop(start+duration+.03);
+}
+function noiseHit(ctx,start,duration=.22,gain=.16){
+  const length=Math.max(1,Math.floor(ctx.sampleRate*duration)),buffer=ctx.createBuffer(1,length,ctx.sampleRate),data=buffer.getChannelData(0);
+  for(let i=0;i<length;i++)data[i]=(Math.random()*2-1)*Math.pow(1-i/length,2);
+  const src=ctx.createBufferSource(),filter=ctx.createBiquadFilter(),amp=ctx.createGain();
+  filter.type="lowpass";filter.frequency.value=700;amp.gain.setValueAtTime(gain,start);amp.gain.exponentialRampToValueAtTime(.0001,start+duration);
+  src.buffer=buffer;src.connect(filter).connect(amp).connect(ctx.destination);src.start(start);
+}
+function playMountSound(player,size){
+  const ctx=ensureAudio();if(!ctx)return;
+  const t=ctx.currentTime+.015,base=player===0?196:146.8;
+  noiseHit(ctx,t,.28,.19);tone(ctx,t,base,.26,"sawtooth",.12,-base*.35);tone(ctx,t+.07,base*1.5,.22,"square",.07,base*.4);
+  if(size===3){tone(ctx,t+.16,base*2,.48,"triangle",.11,base*2);tone(ctx,t+.24,base*2.5,.42,"sine",.08,base*1.7)}
+  else tone(ctx,t+.15,base*2,.28,"triangle",.08,base);
+}
+function mountPhrase(player,size){
+  if(player===0)return size===3?["勇者奥義","勇者が敵を完全制圧！"]:size===2?["鉄壁強襲","戦士が前線を制圧！"]:["魔導封印","魔法使いが敵を封じた！"];
+  return size===3?["魔王降臨","魔王がすべてを支配！"]:size===2?["魔界強襲","魔人が敵陣を制圧！"]:["奇襲成功","ゴブリンが敵を奪った！"];
+}
+function showMountEffect(dst,player,size){
+  const layer=$('#mountFx'),cell=$('#board').children[dst];if(!layer||!cell)return;
+  const rect=cell.getBoundingClientRect(),x=rect.left+rect.width/2,y=rect.top+rect.height/2;
+  layer.style.setProperty('--fx-x',`${x}px`);layer.style.setProperty('--fx-y',`${y}px`);
+  const [kicker,sub]=mountPhrase(player,size);$('#fxKicker').textContent=kicker;$('#fxSub').textContent=sub;
+  layer.querySelectorAll('.fx-particle').forEach(p=>p.remove());
+  const colors=player===0?["#60a5fa","#fbbf24","#ffffff"]:["#ef4444","#a855f7","#fbbf24"];
+  for(let i=0;i<22;i++){const p=document.createElement('i');p.className='fx-particle';p.style.setProperty('--angle',`${i*360/22}deg`);p.style.setProperty('--distance',`${75+Math.random()*110}px`);p.style.setProperty('--delay',`${Math.random()*90}ms`);p.style.setProperty('--particle',colors[i%colors.length]);layer.appendChild(p)}
+  layer.classList.remove('active');void layer.offsetWidth;layer.classList.add('active');
+  const board=$('#board');board.classList.remove('shake');void board.offsetWidth;board.classList.add('shake');
+  playMountSound(player,size);if(navigator.vibrate)navigator.vibrate([35,25,80]);
+  setTimeout(()=>{layer.classList.remove('active');board.classList.remove('shake')},1200);
+}
+function playMove(move,fromAI){saveHistory();const mover=state.turn,result=state.apply(move);lastMoveDst=move.dst;lastMoveWasCover=result.covered;returnAnimation=false;state=result.state;selection=null;if(result.covered){const d=loadData();d.covers++;saveData(d);if(d.covers>=10)unlock('cover10')}const wins=state.winners();if(wins.length){const own=wins.find(x=>x.player===mover)||wins[0];finish(own.player,own.line);if(result.covered)setTimeout(()=>showMountEffect(move.dst,mover,move.size),40);return}renderGame();if(result.covered)setTimeout(()=>showMountEffect(move.dst,mover,move.size),40);if(config.mode==='ai'&&state.turn===1&&!fromAI)requestAI()}
+
+function playVictorySound(winner){
+  const ctx=ensureAudio();if(!ctx)return;const t=ctx.currentTime+.02,base=winner===0?261.63:130.81;
+  [1,1.25,1.5,2].forEach((ratio,i)=>tone(ctx,t+i*.105,base*ratio,.42,"triangle",.09,base*.45));
+  noiseHit(ctx,t+.34,.38,.1);
+}
+function showVictoryEffect(winner){
+  const layer=$('#victoryFx'),word=$('#victoryWord');if(!layer)return;
+  word.textContent=winner===0?'VICTORY!':'DEFEATED';
+  word.style.color=winner===0?'#fff7c2':'#fecaca';
+  layer.querySelectorAll('.confetti').forEach(x=>x.remove());
+  const colors=winner===0?["#fbbf24","#60a5fa","#ffffff","#22c55e"]:["#ef4444","#a855f7","#111827","#fbbf24"];
+  for(let i=0;i<52;i++){const c=document.createElement('i');c.className='confetti';c.style.left=`${Math.random()*100}%`;c.style.setProperty('--c',colors[i%colors.length]);c.style.setProperty('--x',`${(Math.random()-.5)*160}px`);c.style.setProperty('--drift',`${(Math.random()-.5)*220}px`);c.style.setProperty('--rot',`${Math.random()*360}deg`);c.style.setProperty('--dur',`${1.6+Math.random()*1.3}s`);c.style.setProperty('--delay',`${Math.random()*.55}s`);layer.appendChild(c)}
+  layer.classList.remove('active');void layer.offsetWidth;layer.classList.add('active');playVictorySound(winner);
+  if(navigator.vibrate)navigator.vibrate([80,45,80,45,180]);setTimeout(()=>layer.classList.remove('active'),2800);
+}
+function finish(winner,line){gameOver=true;winningLine=line;renderGame();if(config.mode==='ai'){const d=loadData();d.games++;if(winner===0){d.wins++;d.byDifficulty[config.difficulty].w++}else{d.losses++;d.byDifficulty[config.difficulty].l++}saveData(d);if(winner===0){unlock('firstWin');if(config.difficulty==='hard')unlock('hardWin');if(config.difficulty==='expert')unlock('expertWin');if(d.wins>=10)unlock('tenWins')}}$('#resultIcon').textContent=winner===0?'✨⚔️✨':'🔥👑🔥';$('#resultTitle').textContent=`${PLAYER_NAMES[winner]}の勝利！`;$('#resultText').textContent=winner===0?'勇者軍が魔王軍を打ち破りました。':'魔王軍が世界を支配しました。';setTimeout(()=>showVictoryEffect(winner),180);setTimeout(()=>$('#resultModal').classList.add('open'),1850)}
+function requestAI(){
+  const job=++aiJobId;
+  aiThinking=true;
+  setTimeout(()=>{if(job===aiJobId&&aiThinking&&!gameOver){aiJobId++;aiThinking=false;toast('AI思考を解除しました。もう一度操作してください');renderGame()}},2500);
+  renderGame();
+  const snapshot=state;
+  setTimeout(()=>{
+    if(job!==aiJobId||gameOver)return;
+    try{
+      const limit=AI_LIMITS[config.difficulty]||180;
+      const move=AI.choose(snapshot,config.difficulty,limit);
+      if(job!==aiJobId||gameOver)return;
+      aiThinking=false;
+      if(move&&state===snapshot)playMove(move,true);
+      else renderGame();
+    }catch(error){
+      console.error("AI処理エラー",error);
+      if(job!==aiJobId)return;
+      aiThinking=false;
+      const fallback=state.moves()[0]||null;
+      if(fallback)playMove(fallback,true);
+      else renderGame();
+      toast("AIを安全動作へ切り替えました");
+    }
+  },60);
+}
+class AI{
+ static choose(s,diff,limit){
+   const start=performance.now(),deadline=start+limit;
+   let moves=s.moves();
+   if(!moves.length)return null;
+   const fallback=moves[Math.floor(Math.random()*moves.length)];
+   for(const m of moves){
+     if(performance.now()>=deadline)return fallback;
+     const ns=s.apply(m).state;
+     if(ns.winners().some(w=>w.player===s.turn))return m;
+   }
+   if(diff==='easy')return fallback;
+   const safe=[];
+   for(const m of moves){
+     if(performance.now()>=deadline)break;
+     const ns=s.apply(m).state;
+     let loses=false;
+     const replies=ns.moves();
+     for(const om of replies){
+       if(performance.now()>=deadline)break;
+       if(ns.apply(om).state.winners().some(w=>w.player===1-s.turn)){loses=true;break}
+     }
+     if(!loses)safe.push(m);
+   }
+   if(safe.length)moves=safe;
+   moves=this.order(s,moves);
+   const maxDepth={medium:2,hard:3,expert:5}[diff]||2;
+   let best=moves[0]||fallback;
+   for(let depth=1;depth<=maxDepth;depth++){
+     if(performance.now()>=deadline)break;
+     let localBest=null,localScore=-Infinity;
+     for(const m of moves){
+       if(performance.now()>=deadline)break;
+       const score=this.search(s.apply(m).state,depth-1,-Infinity,Infinity,s.turn,deadline);
+       if(score>localScore){localScore=score;localBest=m}
+     }
+     if(localBest)best=localBest;
+   }
+   return best;
+ }
+ static search(s,depth,a,b,root,deadline){
+   if(performance.now()>=deadline)return this.eval(s,root);
+   const ws=s.winners();
+   if(ws.some(w=>w.player===root))return 100000+depth;
+   if(ws.some(w=>w.player===1-root))return -100000-depth;
+   if(depth<=0)return this.eval(s,root);
+   const moves=this.order(s,s.moves());
+   if(!moves.length)return 0;
+   const maximizing=s.turn===root;
+   let value=maximizing?-Infinity:Infinity;
+   for(const m of moves){
+     if(performance.now()>=deadline)break;
+     const v=this.search(s.apply(m).state,depth-1,a,b,root,deadline);
+     if(maximizing){value=Math.max(value,v);a=Math.max(a,value)}
+     else{value=Math.min(value,v);b=Math.min(b,value)}
+     if(b<=a)break;
+   }
+   return Number.isFinite(value)?value:this.eval(s,root);
+ }
+ static eval(s,root){
+   let score=0,n=s.rules.n;
+   for(const line of s.rules.lines){
+     let mine=0,opp=0,sizeMine=0,sizeOpp=0;
+     for(const q of line){const p=s.top(q);if(!p)continue;if(p.player===root){mine++;sizeMine+=p.size}else{opp++;sizeOpp+=p.size}}
+     if(mine&&!opp)score+=Math.pow(8,mine)+sizeMine*3;
+     if(opp&&!mine)score-=Math.pow(9,opp)+sizeOpp*3;
+     if(mine===n-1&&!opp)score+=900;
+     if(opp===n-1&&!mine)score-=1100;
+   }
+   const centers=n===3?[4]:[5,6,9,10];
+   for(const q of centers){const p=s.top(q);if(p)score+=(p.player===root?1:-1)*(12+p.size*2)}
+   return score;
+ }
+ static order(s,moves){
+   const centers=s.rules.n===3?[4]:[5,6,9,10];
+   return [...moves].sort((a,b)=>this.priority(s,b,centers)-this.priority(s,a,centers));
+ }
+ static priority(s,m,centers){
+   let v=m.size*4+(centers.includes(m.dst)?15:0)+(s.top(m.dst)?20:0);
+   const ns=s.apply(m).state;
+   if(ns.winners().some(w=>w.player===s.turn))v+=10000;
+   return v;
+ }
+}
+$('#quitBtn').addEventListener('click',()=>{if(confirm('対局を終了してタイトルへ戻りますか？')){aiJobId++;aiThinking=false;showScreen('homeScreen')}});
+$('#undoBtn').addEventListener('click',undoMove);
+$('#resetBtn').addEventListener('click',()=>{if(confirm('同じ設定で最初からやり直しますか？')){aiJobId++;aiThinking=false;rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];history=[];lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}});
 $('#rulesBtn').addEventListener('click',()=>$('#rulesModal').classList.add('open'));$('#closeRulesBtn').addEventListener('click',()=>$('#rulesModal').classList.remove('open'));
-$('#rematchBtn').addEventListener('click',()=>{$('#resultModal').classList.remove('open');rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()});
+$('#rematchBtn').addEventListener('click',()=>{$('#resultModal').classList.remove('open');aiJobId++;aiThinking=false;rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];history=[];lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()});
 $('#resultHomeBtn').addEventListener('click',()=>{$('#resultModal').classList.remove('open');showScreen('homeScreen')});
 function renderStats(){const d=loadData(),rate=d.games?Math.round(d.wins/d.games*100):0;$('#statsGrid').innerHTML=`<div class="stat"><strong>${d.games}</strong>AI対局</div><div class="stat"><strong>${d.wins}</strong>勝利</div><div class="stat"><strong>${d.losses}</strong>敗北</div><div class="stat"><strong>${rate}%</strong>勝率</div><div class="stat"><strong>${d.covers}</strong>マウント</div><div class="stat"><strong>${Object.keys(d.unlocked||{}).length}</strong>実績解除</div>`}
 function renderAchievements(){const d=loadData();$('#achievementList').innerHTML=ACHIEVEMENTS.map(a=>`<div class="achievement ${d.unlocked?.[a.id]?'unlocked':''}"><span class="achievement-icon">${d.unlocked?.[a.id]?a.icon:'🔒'}</span><div><strong>${a.name}</strong><small>${a.desc}</small></div></div>`).join('')}
