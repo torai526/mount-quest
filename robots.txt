@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://torai526.github.io/mount-quest/sitemap.xml
