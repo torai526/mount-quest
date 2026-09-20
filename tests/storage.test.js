@@ -1,0 +1,1 @@
+"use strict";MQTests.test("旧データをversion 2へ移行",()=>MQTests.equal(migrateData({games:4}).version,2));MQTests.test("不正設定を補正",()=>MQTests.equal(migrateData({settings:{mode:"x"}}).settings.mode,"ai"));MQTests.test("引分除外勝率",()=>{const d=migrateData({wins:6,losses:4,draws:2});MQTests.equal(Math.round(d.wins/(d.wins+d.losses)*100),60)});
