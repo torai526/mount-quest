@@ -8,7 +8,7 @@
 <style>
 :root{--bg:#070b14;--panel:#111a2e;--panel2:#18243d;--text:#f8fafc;--sub:#bec9db;--gold:#fbbf24;--blue:#3b82f6;--red:#ef4444;--cell:#263652;--ok:#22c55e;--line:#ffffff1f}
 *{box-sizing:border-box}html{min-height:100%;background:var(--bg)}body{margin:0;min-height:100svh;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic UI",sans-serif;background:radial-gradient(circle at top,#273b68 0,#111827 38%,#070b14 100%);padding:max(14px,env(safe-area-inset-top)) 14px max(18px,env(safe-area-inset-bottom))}
-button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{display:none}.screen.active{display:block}.card{background:#111a2ee8;border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 60px #0007;padding:22px}.hero{text-align:center;padding:42px 20px}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:.14em;font-size:.82rem}.hero h1{font-size:clamp(2rem,8vw,3.5rem);line-height:1.1;margin:12px 0;text-shadow:0 5px 25px #2563eb88}.subtitle{color:var(--sub);line-height:1.7}.menu{display:grid;gap:12px;margin-top:28px}.btn{border:0;border-radius:14px;padding:14px 18px;font-weight:800;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);cursor:pointer;box-shadow:0 9px 20px #2563eb42}.btn:active{transform:translateY(1px)}.btn.secondary{background:#25324a;box-shadow:none}.btn.danger{background:linear-gradient(135deg,#ef4444,#b91c1c)}.btn.ghost{background:transparent;border:1px solid #ffffff2c;box-shadow:none}.title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.title-row h2{margin:0;font-size:1.35rem}.field{margin:18px 0}.field label{display:block;font-weight:800;margin-bottom:9px}.segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.segmented.two{grid-template-columns:repeat(2,1fr)}.segmented.four{grid-template-columns:repeat(2,1fr)}.choice{position:absolute;opacity:0;pointer-events:none}.choice+span{display:block;text-align:center;padding:11px 8px;border:1px solid #ffffff20;background:#1c2941;border-radius:12px;color:var(--sub);font-weight:700;cursor:pointer}.choice:checked+span{color:white;background:#234f9c;border-color:#60a5fa;box-shadow:0 0 0 2px #60a5fa33}.hidden{display:none!important}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.brand{font-weight:900;color:var(--gold)}.status{text-align:center;font-size:1.05rem;font-weight:900;margin:10px 0 12px;min-height:1.6em}.status.hero-side{color:#93c5fd}.status.demon-side{color:#fca5a5}.game-layout{display:grid;gap:12px}.reserve{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px;background:#10192b;border:1px solid var(--line);border-radius:16px}.reserve-title{grid-column:1/-1;text-align:center;font-size:.82rem;font-weight:800;color:var(--sub)}.reserve-piece{min-height:68px;border:1px solid #ffffff1d;border-radius:13px;background:#1b2943;color:white;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:5px}.reserve-piece.selected{outline:3px solid var(--gold);background:#294876}.reserve-piece:disabled{opacity:.35;cursor:not-allowed}.piece-emoji{font-size:clamp(1.4rem,6vw,2.2rem)}.piece-count{font-weight:900}.board{display:grid;gap:7px;padding:9px;background:#172239;border:1px solid #ffffff1c;border-radius:18px;aspect-ratio:1;width:min(100%,520px);margin:auto}.board.n3{grid-template-columns:repeat(3,1fr)}.board.n4{grid-template-columns:repeat(4,1fr)}.cell{position:relative;border:0;border-radius:12px;background:linear-gradient(145deg,#334761,#22314a);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;min-width:0;box-shadow:inset 0 1px 0 #ffffff17}.cell.selected{outline:4px solid var(--gold);z-index:1}.cell.winning{animation:pulse 700ms infinite alternate;outline:4px solid var(--ok)}@keyframes pulse{to{filter:brightness(1.45)}}.board-piece{width:var(--size);height:var(--size);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 5px 12px #0007,inset 0 2px 1px #ffffff4d;border:3px solid #ffffff55}.board-piece.p0{background:radial-gradient(circle at 30% 25%,#60a5fa,#1d4ed8 58%,#172554)}.board-piece.p1{background:radial-gradient(circle at 30% 25%,#fb7185,#b91c1c 58%,#450a0a)}.board-piece.s1{--size:48%}.board-piece.s2{--size:70%}.board-piece.s3{--size:91%}.board-piece .piece-emoji{font-size:clamp(1rem,7vw,2.8rem);filter:drop-shadow(0 2px 2px #0008)}.piece-img{width:92%;height:92%;object-fit:contain;filter:drop-shadow(0 3px 3px #0008)}.reserve-piece .piece-img{width:46px;height:46px;flex:0 0 46px}.badge{position:absolute;right:-6px;bottom:-6px;background:#050914;border:1px solid #ffffff44;border-radius:999px;padding:2px 5px;font-size:.63rem;font-weight:900}.game-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#050914e8;color:white;border:1px solid #ffffff2e;border-radius:999px;padding:11px 18px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:20;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:20px;z-index:30}.modal.open{display:flex}.modal-card{width:min(100%,430px);text-align:center}.modal-card h2{font-size:2rem;margin:5px}.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#1a2740;border-radius:14px;padding:15px;text-align:center}.stat strong{display:block;font-size:1.65rem;color:var(--gold)}.achievement-list{display:grid;gap:9px}.achievement{display:flex;gap:12px;align-items:center;background:#19263e;border-radius:13px;padding:12px;opacity:.45}.achievement.unlocked{opacity:1;border:1px solid #fbbf2455}.achievement-icon{font-size:1.8rem}.achievement div{text-align:left}.achievement strong{display:block}.achievement small{color:var(--sub)}.note{color:var(--sub);font-size:.85rem;line-height:1.5}.footer{text-align:center;color:#8290a8;font-size:.76rem;margin-top:14px}@media(min-width:640px){.segmented.four{grid-template-columns:repeat(4,1fr)}.card{padding:28px}.reserve-piece{min-height:78px}}
+button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{display:none}.screen.active{display:block}.card{background:#111a2ee8;border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 60px #0007;padding:22px}.hero{text-align:center;padding:42px 20px}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:.14em;font-size:.82rem}.hero h1{font-size:clamp(2rem,8vw,3.5rem);line-height:1.1;margin:12px 0;text-shadow:0 5px 25px #2563eb88}.subtitle{color:var(--sub);line-height:1.7}.menu{display:grid;gap:12px;margin-top:28px}.btn{border:0;border-radius:14px;padding:14px 18px;font-weight:800;color:white;background:linear-gradient(135deg,#2563eb,#1d4ed8);cursor:pointer;box-shadow:0 9px 20px #2563eb42}.btn:active{transform:translateY(1px)}.btn.secondary{background:#25324a;box-shadow:none}.btn.danger{background:linear-gradient(135deg,#ef4444,#b91c1c)}.btn.ghost{background:transparent;border:1px solid #ffffff2c;box-shadow:none}.title-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.title-row h2{margin:0;font-size:1.35rem}.field{margin:18px 0}.field label{display:block;font-weight:800;margin-bottom:9px}.segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.segmented.two{grid-template-columns:repeat(2,1fr)}.segmented.four{grid-template-columns:repeat(2,1fr)}.choice{position:absolute;opacity:0;pointer-events:none}.choice+span{display:block;text-align:center;padding:11px 8px;border:1px solid #ffffff20;background:#1c2941;border-radius:12px;color:var(--sub);font-weight:700;cursor:pointer}.choice:checked+span{color:white;background:#234f9c;border-color:#60a5fa;box-shadow:0 0 0 2px #60a5fa33}.hidden{display:none!important}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.brand{font-weight:900;color:var(--gold)}.status{text-align:center;font-size:1.05rem;font-weight:900;margin:10px 0 12px;min-height:1.6em}.status.hero-side{color:#93c5fd}.status.demon-side{color:#fca5a5}.game-layout{display:grid;gap:12px}.reserve{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:10px;background:#10192b;border:1px solid var(--line);border-radius:16px}.reserve-title{grid-column:1/-1;text-align:center;font-size:.82rem;font-weight:800;color:var(--sub)}.reserve-piece{min-height:68px;border:1px solid #ffffff1d;border-radius:13px;background:#1b2943;color:white;display:flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:5px}.reserve-piece.selected{outline:3px solid var(--gold);background:#294876}.reserve-piece:disabled{opacity:.35;cursor:not-allowed}.piece-emoji{font-size:clamp(1.4rem,6vw,2.2rem)}.piece-count{font-weight:900}.board{contain:layout paint;display:grid;gap:7px;padding:9px;background:#172239;border:1px solid #ffffff1c;border-radius:18px;aspect-ratio:1;width:min(100%,520px);margin:auto}.board.n3{grid-template-columns:repeat(3,1fr)}.board.n4{grid-template-columns:repeat(4,1fr)}.cell{contain:layout paint;position:relative;border:0;border-radius:12px;background:linear-gradient(145deg,#334761,#22314a);color:white;display:flex;align-items:center;justify-content:center;cursor:pointer;min-width:0;box-shadow:inset 0 1px 0 #ffffff17}.cell.selected{outline:4px solid var(--gold);z-index:1}.cell.winning{animation:pulse 700ms infinite alternate;outline:4px solid var(--ok)}@keyframes pulse{to{filter:brightness(1.45)}}.board-piece{width:var(--size);height:var(--size);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 5px 12px #0007,inset 0 2px 1px #ffffff4d;border:3px solid #ffffff55}.board-piece.p0{background:radial-gradient(circle at 30% 25%,#60a5fa,#1d4ed8 58%,#172554)}.board-piece.p1{background:radial-gradient(circle at 30% 25%,#fb7185,#b91c1c 58%,#450a0a)}.board-piece.s1{--size:48%}.board-piece.s2{--size:70%}.board-piece.s3{--size:91%}.board-piece .piece-emoji{font-size:clamp(1rem,7vw,2.8rem);filter:drop-shadow(0 2px 2px #0008)}.piece-img{aspect-ratio:1/1;width:92%;height:92%;object-fit:contain;filter:drop-shadow(0 3px 3px #0008)}.reserve-piece .piece-img{width:46px;height:46px;flex:0 0 46px}.badge{position:absolute;right:-6px;bottom:-6px;background:#050914;border:1px solid #ffffff44;border-radius:999px;padding:2px 5px;font-size:.63rem;font-weight:900}.game-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:#050914e8;color:white;border:1px solid #ffffff2e;border-radius:999px;padding:11px 18px;font-weight:800;opacity:0;pointer-events:none;transition:.2s;z-index:20;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:20px;z-index:30}.modal.open{display:flex}.modal-card{width:min(100%,430px);text-align:center}.modal-card h2{font-size:2rem;margin:5px}.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#1a2740;border-radius:14px;padding:15px;text-align:center}.stat strong{display:block;font-size:1.65rem;color:var(--gold)}.achievement-list{display:grid;gap:9px}.achievement{display:flex;gap:12px;align-items:center;background:#19263e;border-radius:13px;padding:12px;opacity:.45}.achievement.unlocked{opacity:1;border:1px solid #fbbf2455}.achievement-icon{font-size:1.8rem}.achievement div{text-align:left}.achievement strong{display:block}.achievement small{color:var(--sub)}.note{color:var(--sub);font-size:.85rem;line-height:1.5}.footer{text-align:center;color:#8290a8;font-size:.76rem;margin-top:14px}@media(min-width:640px){.segmented.four{grid-template-columns:repeat(4,1fr)}.card{padding:28px}.reserve-piece{min-height:78px}}
 
 /* v0.5 マウント演出 */
 .fx-layer{position:fixed;inset:0;pointer-events:none;z-index:80;overflow:hidden}
@@ -125,7 +125,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
         <button class="btn secondary" data-nav="achievementsScreen">🏆 実績</button>
       </div>
     </div>
-    <p class="footer">Mount Quest v1.4 Worker安定版</p>
+    <p class="footer">Mount Quest v1.5 画像・描画最適化版</p>
   </section>
 
   <section id="setupScreen" class="screen">
@@ -166,7 +166,7 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
       <div id="heroReserve" class="reserve"></div>
       <div id="board" class="board n4" aria-label="ゲーム盤"></div>
       <div id="demonReserve" class="reserve"></div>
-      <div class="game-actions"><button id="godBtn" class="btn god-btn hidden"><img class="god-btn-icon" src="assets/absolute-god.png" alt="" onerror="this.style.display='none'"> <span>絶対神に問う</span></button><button id="undoBtn" class="btn secondary">↩ 一手戻る</button><button id="resetBtn" class="btn secondary">最初から</button><button id="rulesBtn" class="btn secondary">遊び方</button></div>
+      <div class="game-actions"><button id="godBtn" class="btn god-btn hidden"><img class="god-btn-icon" src="assets/webp/absolute-god.webp?v=15" data-fallback="assets/absolute-god.png?v=15" width="34" height="34" decoding="async" alt="" onerror="if(this.dataset.fallback&&this.src.indexOf('.png')<0)this.src=this.dataset.fallback;else this.style.display='none'"> <span>絶対神に問う</span></button><button id="undoBtn" class="btn secondary">↩ 一手戻る</button><button id="resetBtn" class="btn secondary">最初から</button><button id="rulesBtn" class="btn secondary">遊び方</button></div>
     </div>
   </section>
 
@@ -175,14 +175,14 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
 </div>
 
 <div id="resultModal" class="modal"><div class="card modal-card"><div id="resultIcon" style="font-size:3rem">⚔️</div><h2 id="resultTitle">勇者軍の勝利！</h2><p id="resultText" class="subtitle"></p><div class="menu"><button id="rematchBtn" class="btn">もう一度</button><button id="resultHomeBtn" class="btn secondary">タイトルへ</button></div></div></div>
-<div id="rulesModal" class="modal"><div class="card modal-card"><h2>遊び方</h2><p class="subtitle" style="text-align:left">自軍の持ち駒、または盤上で一番上にある自軍の駒を選び、マスを選択します。大きな駒は小さな駒に重ねられます。縦・横・斜めのいずれか1列を自軍の駒でそろえると勝利です。両軍同時完成は引き分け、合法手がない側は敗北、同一局面の連続3回反復は引き分けです。</p><button id="closeRulesBtn" class="btn">閉じる</button></div></div>
+<div id="rulesModal" class="modal"><div class="card modal-card"><h2>遊び方</h2><p class="subtitle" style="text-align:left">自軍の持ち駒、または盤上で一番上にある自軍の駒を選び、マスを選択します。大きな駒は小さな駒に重ねられます。縦・横・斜めのいずれか1列を自軍の駒でそろえると勝利です。両軍同時完成は引き分け、合法手なしは敗北、同一局面の連続3回反復は引き分けです。</p><button id="closeRulesBtn" class="btn">閉じる</button></div></div>
 
 
 
 <div id="godOverlay" class="god-overlay" aria-hidden="true">
   <div class="god-beam"></div><div class="god-halo"></div><div class="god-sigil"></div>
   <div class="god-character-wrap">
-    <img id="godCharacter" class="god-character" src="assets/absolute-god.png" alt="絶対神" onerror="this.style.display='none';document.getElementById('godFallback').style.display='block'">
+    <img id="godCharacter" class="god-character" src="assets/webp/absolute-god.webp?v=15" data-fallback="assets/absolute-god.png?v=15" width="512" height="512" decoding="async" fetchpriority="low" alt="絶対神" onerror="if(this.dataset.fallback&&this.src.indexOf('.png')<0)this.src=this.dataset.fallback;else{this.style.display='none';document.getElementById('godFallback').style.display='block'}">
     <div id="godFallback" class="god-character-fallback" aria-hidden="true">✨👑✨</div>
   </div>
   <div class="god-message"><strong>絶対神降臨</strong><span id="godSubText">運命の一手を授けよう</span></div>
@@ -199,8 +199,8 @@ button,select{font:inherit}.app{width:min(100%,720px);margin:auto}.screen{displa
 <script>
 "use strict";
 const PIECES=[
-  [{name:"魔法使い",emoji:"🧙",image:"assets/wizard.png",size:1},{name:"戦士",emoji:"🛡️",image:"assets/warrior.png",size:2},{name:"勇者",emoji:"⚔️",image:"assets/hero.png",size:3}],
-  [{name:"ゴブリン",emoji:"👺",image:"assets/goblin.png",size:1},{name:"魔人",emoji:"😈",image:"assets/demon.png",size:2},{name:"魔王",emoji:"👑",image:"assets/demonlord.png",size:3}]
+  [{name:"魔法使い",asset:"wizard",emoji:"🧙",image:"assets/wizard.png",size:1},{name:"戦士",asset:"warrior",emoji:"🛡️",image:"assets/warrior.png",size:2},{name:"勇者",asset:"hero",emoji:"⚔️",image:"assets/hero.png",size:3}],
+  [{name:"ゴブリン",asset:"goblin",emoji:"👺",image:"assets/goblin.png",size:1},{name:"魔人",asset:"demon",emoji:"😈",image:"assets/demon.png",size:2},{name:"魔王",asset:"demonlord",emoji:"👑",image:"assets/demonlord.png",size:3}]
 ];
 const PLAYER_NAMES=["勇者軍","魔王軍"];
 const ACHIEVEMENTS=[
@@ -217,23 +217,19 @@ let aiJobId=0;
 let history=[];
 let lastMoveDst=null,lastMoveWasCover=false,lastRenderedTurn=null,returnAnimation=false;
 let godHint=null,godThinking=false,godJobId=0;
-let positionHistory=[];
-let aiWorker=null,workerSequence=0;
+let positionHistory=[],aiWorker=null,workerSequence=0;
 const workerJobs=new Map(),activeTimers=new Set();
 const AI_LIMITS={easy:80,medium:180,hard:450,expert:950};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-
-function scheduleTimer(callback,delay){const id=setTimeout(()=>{activeTimers.delete(id);callback()},delay);activeTimers.add(id);return id}
+function scheduleTimer(fn,delay){const id=setTimeout(()=>{activeTimers.delete(id);fn()},delay);activeTimers.add(id);return id}
 function clearAllTimers(){for(const id of activeTimers)clearTimeout(id);activeTimers.clear()}
-function createAIWorker(){if(aiWorker)return aiWorker;try{aiWorker=new Worker('./ai-worker.js?v=1.4');aiWorker.addEventListener('message',handleWorkerMessage);aiWorker.addEventListener('error',handleWorkerError);return aiWorker}catch(error){console.error('AI Worker作成失敗',error);return null}}
-function serializeStateForWorker(current){return {rules:{n:current.rules.n,lines:current.rules.lines.map(line=>[...line]),counts:[...current.rules.counts]},board:current.board.map(stack=>stack.map(piece=>({player:piece.player,size:piece.size}))),reserves:[[...current.reserves[0]],[...current.reserves[1]]],turn:current.turn}}
-function searchWithWorker({purpose,currentState,difficulty,timeLimit}){const worker=createAIWorker();if(!worker)return Promise.reject(new Error('AI Workerを利用できません'));const jobId=++workerSequence;return new Promise((resolve,reject)=>{workerJobs.set(jobId,{resolve,reject});worker.postMessage({type:'SEARCH',jobId,purpose,state:serializeStateForWorker(currentState),difficulty,timeLimit})})}
-function handleWorkerMessage(event){const result=event.data,job=workerJobs.get(result?.jobId);if(!job)return;workerJobs.delete(result.jobId);result.type==='ERROR'?job.reject(new Error(result.message)):job.resolve(result)}
-function handleWorkerError(event){console.error('AI Workerエラー',event);for(const job of workerJobs.values())job.reject(new Error('AI Workerエラー'));workerJobs.clear();if(aiWorker){aiWorker.terminate();aiWorker=null}}
-function cancelWorkerJobs(){for(const job of workerJobs.values())job.reject(new Error('キャンセル'));workerJobs.clear();if(aiWorker){aiWorker.terminate();aiWorker=null}workerSequence++}
-function repetitionKey(current){let key=`${current.turn}|${current.reserves[0].join('')}/${current.reserves[1].join('')}|`;for(const stack of current.board)key+=stack.map(p=>`${p.player}${p.size}`).join('')+';';return key}
-function hasThreefoldContinuousRepetition(history){for(let cycle=1;cycle<=Math.floor(history.length/3);cycle++){const start=history.length-cycle*3;let ok=true;for(let i=start+cycle;i<history.length;i++){if(history[i]!==history[start+((i-start)%cycle)]){ok=false;break}}if(ok)return true}return false}
-
+function worker(){if(aiWorker)return aiWorker;aiWorker=new Worker('./ai-worker.js?v=15');aiWorker.onmessage=e=>{const r=e.data,j=workerJobs.get(r.jobId);if(!j)return;workerJobs.delete(r.jobId);r.type==='ERROR'?j.reject(new Error(r.message)):j.resolve(r)};aiWorker.onerror=e=>{console.error(e);for(const j of workerJobs.values())j.reject(new Error('Worker error'));workerJobs.clear();aiWorker?.terminate();aiWorker=null};return aiWorker}
+function workerState(x){return{rules:{n:x.rules.n,lines:x.rules.lines,counts:x.rules.counts},board:x.board,reserves:x.reserves,turn:x.turn}}
+function workerSearch(purpose,current,difficulty,timeLimit){const jobId=++workerSequence;return new Promise((resolve,reject)=>{workerJobs.set(jobId,{resolve,reject});worker().postMessage({type:'SEARCH',jobId,purpose,state:workerState(current),difficulty,timeLimit})})}
+function cancelWorker(){for(const j of workerJobs.values())j.reject(new Error('cancelled'));workerJobs.clear();aiWorker?.terminate();aiWorker=null;workerSequence++}
+function repetitionKey(x){return `${x.turn}|${x.reserves[0].join('')}/${x.reserves[1].join('')}|`+x.board.map(stack=>stack.map(q=>`${q.player}${q.size}`).join('')).join(';')}
+function threefold(h){for(let c=1;c<=Math.floor(h.length/3);c++){const st=h.length-c*3;let ok=true;for(let i=st+c;i<h.length;i++)if(h[i]!==h[st+(i-st)%c]){ok=false;break}if(ok)return true}return false}
+function imageTag(name,alt,cls='piece-img'){return `<img class="${cls}" src="assets/webp/${name}.webp?v=15" data-fallback="assets/${name}.png?v=15" alt="${alt}" decoding="async" width="512" height="512" onerror="if(this.dataset.fallback&&this.src.indexOf('.png')<0)this.src=this.dataset.fallback">`}
 function defaultData(){return {games:0,wins:0,losses:0,draws:0,covers:0,byDifficulty:{easy:{w:0,l:0},medium:{w:0,l:0},hard:{w:0,l:0},expert:{w:0,l:0}},unlocked:{}}}
 function loadData(){try{return {...defaultData(),...JSON.parse(localStorage.getItem("mountQuestData")||"{}")}}catch{return defaultData()}}
 function saveData(d){localStorage.setItem("mountQuestData",JSON.stringify(d))}
@@ -270,7 +266,7 @@ function updateUndoButton(){
   if(button)button.disabled=history.length===0||(config.mode==='ai'&&state?.turn===0&&history.length<2&&!gameOver);
 }
 function undoMove(){
-  cancelWorkerJobs();clearAllTimers();
+  cancelWorker();clearAllTimers();
   godHint=null;godJobId++;
   if(!state||history.length===0){toast('戻せる手がありません');return}
   aiJobId++;
@@ -293,8 +289,11 @@ function undoMove(){
 }
 function startGame(){config={mode:selected('mode'),size:+selected('size'),difficulty:selected('difficulty'),first:selected('first'),godHelp:selected('godHelp')};if(config.first==='random')config.first=Math.random()<.5?'hero':'demon';rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];aiThinking=false;aiJobId++;history=[];positionHistory=[repetitionKey(state)];godHint=null;godThinking=false;godJobId++;lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;godHint=null;godThinking=false;godJobId++;unlock('firstGame');showScreen('gameScreen');renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}
 $('#launchBtn').addEventListener('click',startGame);
-function renderGame(){updateUndoButton();const godBtn=$('#godBtn');if(godBtn){const show=config.godHelp==='on'&&!gameOver;const unavailable=godThinking||aiThinking||(config.mode==='ai'&&state?.turn!==0);godBtn.classList.toggle('hidden',!show);godBtn.disabled=unavailable;godBtn.querySelector('span').textContent=godThinking?'神託を受信中…':aiThinking?'魔王AIが思考中…':(config.mode==='ai'&&state?.turn!==0?'勇者軍の手番で利用可能':'絶対神に問う')}const st=$('#status');const turnChanged=lastRenderedTurn!==null&&lastRenderedTurn!==state.turn;st.textContent=gameOver?'対局終了':aiThinking?'魔王AIが思考中…':`${PLAYER_NAMES[state.turn]}の手番`;st.className=`status ${state.turn===0?'hero-side':'demon-side'}`;if(turnChanged){st.classList.add('turn-change');setTimeout(()=>st.classList.remove('turn-change'),520)}lastRenderedTurn=state.turn;renderReserve('#heroReserve',0);renderReserve('#demonReserve',1);const board=$('#board');board.className=`board n${rules.n}`;board.innerHTML='';for(let i=0;i<state.board.length;i++){const c=document.createElement('button');c.className='cell';c.type='button';if(selection?.src===i)c.classList.add('selected');if(winningLine.includes(i))c.classList.add('winning');if(i===lastMoveDst)c.classList.add('last-move');if(godHint?.src===i)c.classList.add('god-source');if(godHint?.dst===i)c.classList.add('god-target');if(selection&&state.legal({src:selection.src,dst:i,size:selection.size}))c.classList.add('legal-target');const p=state.top(i);if(p){const d=document.createElement('div');d.className=`board-piece p${p.player} s${p.size}`;if(i===lastMoveDst)d.classList.add(returnAnimation?'piece-return':(lastMoveWasCover?'piece-cover':'piece-enter'));d.innerHTML=`<span class="turn-aura"></span><img class="piece-img" src="${PIECES[p.player][p.size-1].image}" alt="${PIECES[p.player][p.size-1].name}" onerror="this.replaceWith(document.createTextNode('${PIECES[p.player][p.size-1].emoji}'))"><span class="badge">${p.size}</span>`;c.appendChild(d)}c.addEventListener('click',()=>cellClick(i));board.appendChild(c)}}
-function renderReserve(sel,player){const el=$(sel);el.innerHTML=`<div class="reserve-title">${PLAYER_NAMES[player]}の持ち駒</div>`;PIECES[player].forEach(piece=>{const count=state.reserves[player][piece.size-1],b=document.createElement('button');b.type='button';b.className='reserve-piece';if(selection?.src===null&&selection.size===piece.size&&state.turn===player)b.classList.add('selected');if(godHint?.src===null&&godHint?.size===piece.size&&state.turn===player)b.classList.add('god-source');b.disabled=gameOver||aiThinking||state.turn!==player||count===0||(config.mode==='ai'&&player===1);b.innerHTML=`<img class="piece-img" src="${piece.image}" alt="${piece.name}" onerror="this.replaceWith(document.createTextNode('${piece.emoji}'))"><span>${piece.name}</span><span class="piece-count">×${count}</span>`;b.addEventListener('click',()=>{
+
+$('#board').addEventListener('click',(event)=>{const cell=event.target.closest('.cell');if(!cell||!$('#board').contains(cell))return;cellClick(Number(cell.dataset.square))});
+
+function renderGame(){updateUndoButton();const godBtn=$('#godBtn');if(godBtn){const show=config.godHelp==='on'&&!gameOver;const unavailable=godThinking||aiThinking||(config.mode==='ai'&&state?.turn!==0);godBtn.classList.toggle('hidden',!show);godBtn.disabled=unavailable;godBtn.querySelector('span').textContent=godThinking?'神託を受信中…':aiThinking?'魔王AIが思考中…':(config.mode==='ai'&&state?.turn!==0?'勇者軍の手番で利用可能':'絶対神に問う')}const st=$('#status');const turnChanged=lastRenderedTurn!==null&&lastRenderedTurn!==state.turn;st.textContent=gameOver?'対局終了':aiThinking?'魔王AIが思考中…':`${PLAYER_NAMES[state.turn]}の手番`;st.className=`status ${state.turn===0?'hero-side':'demon-side'}`;if(turnChanged){st.classList.add('turn-change');setTimeout(()=>st.classList.remove('turn-change'),520)}lastRenderedTurn=state.turn;renderReserve('#heroReserve',0);renderReserve('#demonReserve',1);const board=$('#board');board.className=`board n${rules.n}`;board.innerHTML='';for(let i=0;i<state.board.length;i++){const c=document.createElement('button');c.className='cell';c.type='button';if(selection?.src===i)c.classList.add('selected');if(winningLine.includes(i))c.classList.add('winning');if(i===lastMoveDst)c.classList.add('last-move');if(godHint?.src===i)c.classList.add('god-source');if(godHint?.dst===i)c.classList.add('god-target');if(selection&&state.legal({src:selection.src,dst:i,size:selection.size}))c.classList.add('legal-target');const p=state.top(i);if(p){const d=document.createElement('div');d.className=`board-piece p${p.player} s${p.size}`;if(i===lastMoveDst)d.classList.add(returnAnimation?'piece-return':(lastMoveWasCover?'piece-cover':'piece-enter'));const meta=PIECES[p.player][p.size-1];d.innerHTML=`<span class="turn-aura"></span>${imageTag(meta.asset,meta.name)}<span class="badge">${p.size}</span>`;c.appendChild(d)}c.dataset.square=String(i);board.appendChild(c)}}
+function renderReserve(sel,player){const el=$(sel);el.innerHTML=`<div class="reserve-title">${PLAYER_NAMES[player]}の持ち駒</div>`;PIECES[player].forEach(piece=>{const count=state.reserves[player][piece.size-1],b=document.createElement('button');b.type='button';b.className='reserve-piece';if(selection?.src===null&&selection.size===piece.size&&state.turn===player)b.classList.add('selected');if(godHint?.src===null&&godHint?.size===piece.size&&state.turn===player)b.classList.add('god-source');b.disabled=gameOver||aiThinking||state.turn!==player||count===0||(config.mode==='ai'&&player===1);b.innerHTML=`${imageTag(piece.asset,piece.name)}<span>${piece.name}</span><span class="piece-count">×${count}</span>`;b.addEventListener('click',()=>{
   const sameSelection=selection?.src===null&&selection?.size===piece.size;
   selection=sameSelection?null:{src:null,size:piece.size};
   renderGame();
@@ -325,21 +324,7 @@ function showMountEffect(dst,player,size){
   const board=$('#board');board.classList.remove('shake');void board.offsetWidth;board.classList.add('shake');
   setTimeout(()=>{layer.classList.remove('active');board.classList.remove('shake')},1200);
 }
-function playMove(move,fromAI){
-  godHint=null;godJobId++;saveHistory();
-  const mover=state.turn,result=state.apply(move);
-  lastMoveDst=move.dst;lastMoveWasCover=result.covered;returnAnimation=false;state=result.state;selection=null;
-  if(result.covered){const d=loadData();d.covers++;saveData(d);if(d.covers>=10)unlock('cover10')}
-  const wins=state.winners();
-  if(wins.length>=2){finishDraw('両軍のラインが同時に完成しました');if(result.covered)scheduleTimer(()=>showMountEffect(move.dst,mover,move.size),40);return}
-  if(wins.length===1){finish(wins[0].player,wins[0].line);if(result.covered)scheduleTimer(()=>showMountEffect(move.dst,mover,move.size),40);return}
-  if(state.moves().length===0){finish(mover,[]);return}
-  positionHistory.push(repetitionKey(state));
-  if(hasThreefoldContinuousRepetition(positionHistory)){finishDraw('同一局面が3回連続で繰り返されました');return}
-  renderGame();if(result.covered)scheduleTimer(()=>showMountEffect(move.dst,mover,move.size),40);
-  if(config.mode==='ai'&&state.turn===1&&!fromAI)requestAI();
-}
-
+function playMove(move,fromAI){godHint=null;godJobId++;saveHistory();const mover=state.turn,result=state.apply(move);lastMoveDst=move.dst;lastMoveWasCover=result.covered;returnAnimation=false;state=result.state;selection=null;if(result.covered){const d=loadData();d.covers++;saveData(d);if(d.covers>=10)unlock('cover10')}const wins=state.winners();if(wins.length>=2){finishDraw('両軍のラインが同時に完成しました');return}if(wins.length===1){finish(wins[0].player,wins[0].line);return}if(state.moves().length===0){finish(mover,[]);return}positionHistory.push(repetitionKey(state));if(threefold(positionHistory)){finishDraw('同一局面が3回連続で繰り返されました');return}renderGame();if(result.covered)scheduleTimer(()=>showMountEffect(move.dst,mover,move.size),40);if(config.mode==='ai'&&state.turn===1&&!fromAI)requestAI()}
 function showVictoryEffect(winner){
   const layer=$('#victoryFx'),word=$('#victoryWord');if(!layer)return;
   word.textContent=winner===0?'VICTORY!':'DEFEATED';
@@ -349,7 +334,7 @@ function showVictoryEffect(winner){
   for(let i=0;i<52;i++){const c=document.createElement('i');c.className='confetti';c.style.left=`${Math.random()*100}%`;c.style.setProperty('--c',colors[i%colors.length]);c.style.setProperty('--x',`${(Math.random()-.5)*160}px`);c.style.setProperty('--drift',`${(Math.random()-.5)*220}px`);c.style.setProperty('--rot',`${Math.random()*360}deg`);c.style.setProperty('--dur',`${1.6+Math.random()*1.3}s`);c.style.setProperty('--delay',`${Math.random()*.55}s`);layer.appendChild(c)}
   layer.classList.remove('active');void layer.offsetWidth;layer.classList.add('active');setTimeout(()=>layer.classList.remove('active'),2800);
 }
-function finishDraw(reason){gameOver=true;winningLine=[];renderGame();if(config.mode==='ai'){const d=loadData();d.games++;d.draws=(d.draws||0)+1;saveData(d)}$('#resultIcon').textContent='🤝';$('#resultTitle').textContent='引き分け';$('#resultText').textContent=reason;scheduleTimer(()=>$('#resultModal').classList.add('open'),500)}
+function finishDraw(reason){gameOver=true;winningLine=[];renderGame();if(config.mode==='ai'){const d=loadData();d.games++;d.draws=(d.draws||0)+1;saveData(d)}$('#resultIcon').textContent='🤝';$('#resultTitle').textContent='引き分け';$('#resultText').textContent=reason;scheduleTimer(()=>$('#resultModal').classList.add('open'),450)}
 function finish(winner,line){gameOver=true;winningLine=line;renderGame();if(config.mode==='ai'){const d=loadData();d.games++;if(winner===0){d.wins++;d.byDifficulty[config.difficulty].w++}else{d.losses++;d.byDifficulty[config.difficulty].l++}saveData(d);if(winner===0){unlock('firstWin');if(config.difficulty==='hard')unlock('hardWin');if(config.difficulty==='expert')unlock('expertWin');if(d.wins>=10)unlock('tenWins')}}$('#resultIcon').textContent=winner===0?'✨⚔️✨':'🔥👑🔥';$('#resultTitle').textContent=`${PLAYER_NAMES[winner]}の勝利！`;$('#resultText').textContent=winner===0?'勇者軍が魔王軍を打ち破りました。':'魔王軍が世界を支配しました。';setTimeout(()=>showVictoryEffect(winner),180);setTimeout(()=>$('#resultModal').classList.add('open'),1850)}
 
 function moveDescription(move){
@@ -362,29 +347,104 @@ function showGodRevelation(move){
   overlay.classList.remove('active');void overlay.offsetWidth;overlay.classList.add('active');
   setTimeout(()=>overlay.classList.remove('active'),2200);
 }
-async function askAbsoluteGod(){
-  if(config.godHelp!=='on'||gameOver||godThinking||aiThinking)return;
-  if(config.mode==='ai'&&state.turn!==0){toast('絶対神の助言は勇者軍の手番で利用できます');return}
-  const job=++godJobId,snapshot=state;godThinking=true;godHint=null;selection=null;renderGame();toast('絶対神が未来を見通しています…');
-  try{const result=await searchWithWorker({purpose:'GOD_HINT',currentState:snapshot,difficulty:'expert',timeLimit:1100});if(job!==godJobId||gameOver||state!==snapshot)return;godThinking=false;const move=result.move;if(!move||!state.legal(move)){toast('神託を授けられる手がありません');renderGame();return}godHint={src:move.src,dst:move.dst,size:move.size};renderGame();showGodRevelation(move);scheduleTimer(()=>{if(job===godJobId&&godHint){godHint=null;renderGame()}},9000)}catch(error){if(job!==godJobId)return;console.error(error);godThinking=false;toast('神託が乱れました');renderGame()}
+async function askAbsoluteGod(){if(config.godHelp!=='on'||gameOver||godThinking||aiThinking)return;if(config.mode==='ai'&&state.turn!==0)return toast('勇者軍の手番で利用できます');const job=++godJobId,snapshot=state;godThinking=true;godHint=null;renderGame();try{const r=await workerSearch('GOD',snapshot,'expert',1100);if(job!==godJobId||state!==snapshot||gameOver)return;godThinking=false;if(!r.move||!state.legal(r.move)){renderGame();return toast('神託を授けられる手がありません')}godHint={...r.move};renderGame();showGodRevelation(r.move);scheduleTimer(()=>{if(job===godJobId){godHint=null;renderGame()}},9000)}catch(e){if(job!==godJobId)return;godThinking=false;renderGame();toast('神託が乱れました')}}
+async function requestAI(){if(gameOver||config.mode!=='ai'||state.turn!==1)return;const job=++aiJobId,snapshot=state;aiThinking=true;renderGame();try{const r=await workerSearch('AI',snapshot,config.difficulty,AI_LIMITS[config.difficulty]||180);if(job!==aiJobId||state!==snapshot||gameOver)return;aiThinking=false;if(r.move&&state.legal(r.move))playMove(r.move,true);else{const m=state.moves()[0];m?playMove(m,true):finish(0,[])}}catch(e){if(job!==aiJobId)return;aiThinking=false;const m=state.moves()[0];m?playMove(m,true):finish(0,[])}}
+class AI{
+ static choose(s,diff,limit){
+   const start=performance.now(),deadline=start+limit;
+   let moves=s.moves();
+   if(!moves.length)return null;
+   const fallback=moves[Math.floor(Math.random()*moves.length)];
+   for(const m of moves){
+     if(performance.now()>=deadline)return fallback;
+     const ns=s.apply(m).state;
+     if(ns.winners().some(w=>w.player===s.turn))return m;
+   }
+   if(diff==='easy')return fallback;
+   const safe=[];
+   for(const m of moves){
+     if(performance.now()>=deadline)break;
+     const ns=s.apply(m).state;
+     let loses=false;
+     const replies=ns.moves();
+     for(const om of replies){
+       if(performance.now()>=deadline)break;
+       if(ns.apply(om).state.winners().some(w=>w.player===1-s.turn)){loses=true;break}
+     }
+     if(!loses)safe.push(m);
+   }
+   if(safe.length)moves=safe;
+   moves=this.order(s,moves);
+   const maxDepth={medium:2,hard:3,expert:5}[diff]||2;
+   let best=moves[0]||fallback;
+   for(let depth=1;depth<=maxDepth;depth++){
+     if(performance.now()>=deadline)break;
+     let localBest=null,localScore=-Infinity;
+     for(const m of moves){
+       if(performance.now()>=deadline)break;
+       const score=this.search(s.apply(m).state,depth-1,-Infinity,Infinity,s.turn,deadline);
+       if(score>localScore){localScore=score;localBest=m}
+     }
+     if(localBest)best=localBest;
+   }
+   return best;
+ }
+ static search(s,depth,a,b,root,deadline){
+   if(performance.now()>=deadline)return this.eval(s,root);
+   const ws=s.winners();
+   if(ws.some(w=>w.player===root))return 100000+depth;
+   if(ws.some(w=>w.player===1-root))return -100000-depth;
+   if(depth<=0)return this.eval(s,root);
+   const moves=this.order(s,s.moves());
+   if(!moves.length)return 0;
+   const maximizing=s.turn===root;
+   let value=maximizing?-Infinity:Infinity;
+   for(const m of moves){
+     if(performance.now()>=deadline)break;
+     const v=this.search(s.apply(m).state,depth-1,a,b,root,deadline);
+     if(maximizing){value=Math.max(value,v);a=Math.max(a,value)}
+     else{value=Math.min(value,v);b=Math.min(b,value)}
+     if(b<=a)break;
+   }
+   return Number.isFinite(value)?value:this.eval(s,root);
+ }
+ static eval(s,root){
+   let score=0,n=s.rules.n;
+   for(const line of s.rules.lines){
+     let mine=0,opp=0,sizeMine=0,sizeOpp=0;
+     for(const q of line){const p=s.top(q);if(!p)continue;if(p.player===root){mine++;sizeMine+=p.size}else{opp++;sizeOpp+=p.size}}
+     if(mine&&!opp)score+=Math.pow(8,mine)+sizeMine*3;
+     if(opp&&!mine)score-=Math.pow(9,opp)+sizeOpp*3;
+     if(mine===n-1&&!opp)score+=900;
+     if(opp===n-1&&!mine)score-=1100;
+   }
+   const centers=n===3?[4]:[5,6,9,10];
+   for(const q of centers){const p=s.top(q);if(p)score+=(p.player===root?1:-1)*(12+p.size*2)}
+   return score;
+ }
+ static order(s,moves){
+   const centers=s.rules.n===3?[4]:[5,6,9,10];
+   return [...moves].sort((a,b)=>this.priority(s,b,centers)-this.priority(s,a,centers));
+ }
+ static priority(s,m,centers){
+   let v=m.size*4+(centers.includes(m.dst)?15:0)+(s.top(m.dst)?20:0);
+   const ns=s.apply(m).state;
+   if(ns.winners().some(w=>w.player===s.turn))v+=10000;
+   return v;
+ }
 }
-async function requestAI(){
-  if(gameOver||config.mode!=='ai'||state.turn!==1)return;
-  const job=++aiJobId,snapshot=state;aiThinking=true;selection=null;godHint=null;renderGame();
-  try{const result=await searchWithWorker({purpose:'AI_MOVE',currentState:snapshot,difficulty:config.difficulty,timeLimit:AI_LIMITS[config.difficulty]||180});if(job!==aiJobId||gameOver||state!==snapshot)return;aiThinking=false;const move=result.move;if(move&&state.legal(move))playMove(move,true);else{const fallback=state.moves()[0];if(fallback)playMove(fallback,true);else finish(0,[])}}catch(error){if(job!==aiJobId)return;console.error(error);aiThinking=false;const fallback=state.moves()[0];if(fallback){toast('AIを安全動作へ切り替えました');playMove(fallback,true)}else finish(0,[])}
-}
-$('#quitBtn').addEventListener('click',()=>{if(confirm('対局を終了してタイトルへ戻りますか？')){cancelWorkerJobs();clearAllTimers();aiJobId++;godJobId++;aiThinking=false;godThinking=false;showScreen('homeScreen')}});
+$('#quitBtn').addEventListener('click',()=>{if(confirm('対局を終了してタイトルへ戻りますか？')){cancelWorker();clearAllTimers();aiJobId++;aiThinking=false;showScreen('homeScreen')}});
 $('#godBtn').addEventListener('click',askAbsoluteGod);
 $('#undoBtn').addEventListener('click',undoMove);
-$('#resetBtn').addEventListener('click',()=>{if(confirm('同じ設定で最初からやり直しますか？')){cancelWorkerJobs();clearAllTimers();aiJobId++;aiThinking=false;rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];history=[];positionHistory=[repetitionKey(state)];godHint=null;godThinking=false;godJobId++;lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}});
+$('#resetBtn').addEventListener('click',()=>{if(confirm('同じ設定で最初からやり直しますか？')){cancelWorker();clearAllTimers();aiJobId++;aiThinking=false;rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];history=[];positionHistory=[repetitionKey(state)];godHint=null;godThinking=false;godJobId++;lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()}});
 $('#rulesBtn').addEventListener('click',()=>$('#rulesModal').classList.add('open'));$('#closeRulesBtn').addEventListener('click',()=>$('#rulesModal').classList.remove('open'));
-$('#rematchBtn').addEventListener('click',()=>{$('#resultModal').classList.remove('open');cancelWorkerJobs();clearAllTimers();aiJobId++;aiThinking=false;rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];history=[];positionHistory=[repetitionKey(state)];godHint=null;godThinking=false;godJobId++;lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()});
+$('#rematchBtn').addEventListener('click',()=>{$('#resultModal').classList.remove('open');cancelWorker();clearAllTimers();aiJobId++;aiThinking=false;rules=new Rules(config.size);state=new State(rules,null,null,config.first==='hero'?0:1);selection=null;gameOver=false;winningLine=[];history=[];positionHistory=[repetitionKey(state)];godHint=null;godThinking=false;godJobId++;lastMoveDst=null;lastMoveWasCover=false;lastRenderedTurn=null;returnAnimation=false;renderGame();if(config.mode==='ai'&&state.turn===1)requestAI()});
 $('#resultHomeBtn').addEventListener('click',()=>{$('#resultModal').classList.remove('open');showScreen('homeScreen')});
-function renderStats(){const d=loadData(),rate=d.games?Math.round(d.wins/d.games*100):0;$('#statsGrid').innerHTML=`<div class="stat"><strong>${d.games}</strong>AI対局</div><div class="stat"><strong>${d.wins}</strong>勝利</div><div class="stat"><strong>${d.losses}</strong>敗北</div><div class="stat"><strong>${d.draws||0}</strong>引き分け</div><div class="stat"><strong>${rate}%</strong>勝率</div><div class="stat"><strong>${d.covers}</strong>マウント</div><div class="stat"><strong>${Object.keys(d.unlocked||{}).length}</strong>実績解除</div>`}
+function renderStats(){const d=loadData(),rate=d.games?Math.round(d.wins/d.games*100):0;$('#statsGrid').innerHTML=`<div class="stat"><strong>${d.games}</strong>AI対局</div><div class="stat"><strong>${d.wins}</strong>勝利</div><div class="stat"><strong>${d.losses}</strong>敗北</div><div class="stat"><strong>${rate}%</strong>勝率</div><div class="stat"><strong>${d.covers}</strong>マウント</div><div class="stat"><strong>${Object.keys(d.unlocked||{}).length}</strong>実績解除</div>`}
 function renderAchievements(){const d=loadData();$('#achievementList').innerHTML=ACHIEVEMENTS.map(a=>`<div class="achievement ${d.unlocked?.[a.id]?'unlocked':''}"><span class="achievement-icon">${d.unlocked?.[a.id]?a.icon:'🔒'}</span><div><strong>${a.name}</strong><small>${a.desc}</small></div></div>`).join('')}
 $('#clearDataBtn').addEventListener('click',()=>{if(confirm('戦績と実績をすべて削除しますか？')){localStorage.removeItem('mountQuestData');renderStats();toast('記録をリセットしました')}});
 let toastTimer;function toast(text){const t=$('#toast');t.textContent=text;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),1700)}
-window.addEventListener('pagehide',()=>{cancelWorkerJobs();clearAllTimers()});
+window.addEventListener('pagehide',()=>{cancelWorker();clearAllTimers()});
 </script>
 </body>
 </html>
