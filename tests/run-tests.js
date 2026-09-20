@@ -1,1 +1,0 @@
-"use strict";async function run(){await MQTests.run()}document.querySelector("#run").addEventListener("click",run);window.addEventListener("load",run);
