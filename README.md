@@ -14,7 +14,7 @@
 
 「封印」と「覚醒」の独自ルールを約30秒で紹介しています。
 
-[マウントクエスト公式トレーラーをYouTubeで見る](https://youtu.be/SqqRGSBrGDA?si=BKZ5JY7hkzrYp7VG)
+[マウントクエスト公式トレーラーをYouTubeで見る](https://youtu.be/-vrzGmB9vMo)
 
 ## ゲームの特徴
 
