@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<title>マウントクエスト</title>
+<link rel="stylesheet" href="./css/base.css?v=17">
+<link rel="stylesheet" href="./css/effects.css?v=17">
+</head>
+<body>
+<div class="app">
+  <section id="homeScreen" class="screen active">
+    <div class="card hero">
+      <div class="eyebrow">勇者軍 VS 魔王軍</div>
+      <h1>⚔️ マウントクエスト ⚔️</h1>
+      <p class="subtitle">大きな仲間で小さな敵を覆い、縦・横・斜めをそろえよう。</p>
+      <div class="menu">
+        <button class="btn" data-nav="setupScreen">冒険を始める</button>
+        <button class="btn secondary" data-nav="statsScreen">📊 戦績</button>
+        <button class="btn secondary" data-nav="achievementsScreen">🏆 実績</button>
+      </div>
+    </div>
+    <p class="footer">Mount Quest v1.7 コード分割版</p>
+  </section>
+
+  <section id="setupScreen" class="screen">
+    <div class="card">
+      <div class="title-row"><h2>冒険の設定</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div>
+      <div class="field"><label>対戦モード</label><div class="segmented two">
+        <label><input class="choice" type="radio" name="mode" value="ai" checked><span>魔王AIと対戦</span></label>
+        <label><input class="choice" type="radio" name="mode" value="local"><span>2人で対戦</span></label>
+      </div></div>
+      <div id="godOptionField" class="field"><label>絶対神の助言</label><div class="segmented two">
+        <label><input class="choice" type="radio" name="godHelp" value="on" checked><span>✨ あり</span></label>
+        <label><input class="choice" type="radio" name="godHelp" value="off"><span>なし</span></label>
+      </div><p class="note">現在の手番に対する最強AIの推奨手を表示します。AI対戦では勇者軍の手番中に利用できます。</p></div>
+      <div class="field"><label>盤面</label><div class="segmented two">
+        <label><input class="choice" type="radio" name="size" value="3"><span>3 × 3</span></label>
+        <label><input class="choice" type="radio" name="size" value="4" checked><span>4 × 4</span></label>
+      </div></div>
+      <div id="difficultyField" class="field"><label>AI難易度</label><div class="segmented four">
+        <label><input class="choice" type="radio" name="difficulty" value="easy"><span>初級</span></label>
+        <label><input class="choice" type="radio" name="difficulty" value="medium" checked><span>中級</span></label>
+        <label><input class="choice" type="radio" name="difficulty" value="hard"><span>上級</span></label>
+        <label><input class="choice" type="radio" name="difficulty" value="expert"><span>最強</span></label>
+      </div></div>
+      <div class="field"><label>勇者軍の手番</label><div class="segmented">
+        <label><input class="choice" type="radio" name="first" value="hero" checked><span>先手</span></label>
+        <label><input class="choice" type="radio" name="first" value="demon"><span>後手</span></label>
+        <label><input class="choice" type="radio" name="first" value="random"><span>ランダム</span></label>
+      </div></div>
+      <p id="modeNote" class="note">AI対戦では、あなたは勇者軍、AIは魔王軍で固定されます。絶対神の助言は勇者軍の手番中に利用できます。</p>
+      <button id="launchBtn" class="btn" style="width:100%">出撃する</button>
+    </div>
+  </section>
+
+  <section id="gameScreen" class="screen">
+    <div class="topbar"><span class="brand">マウントクエスト</span><button id="quitBtn" class="btn ghost">冒険を終える</button></div>
+    <div id="status" class="status hero-side">勇者軍の手番</div>
+    <div class="game-layout">
+      <div id="heroReserve" class="reserve"></div>
+      <div id="board" class="board n4" aria-label="ゲーム盤"></div>
+      <div id="demonReserve" class="reserve"></div>
+      <div class="game-actions"><button id="godBtn" class="btn god-btn hidden"><img class="god-btn-icon" src="assets/webp/absolute-god.webp?v=16" data-fallback="assets/absolute-god.png?v=16" width="34" height="34" decoding="async" alt="" onerror="if(this.dataset.fallback&&this.src.indexOf('.png')<0)this.src=this.dataset.fallback;else this.style.display='none'"> <span>絶対神に問う</span></button><button id="undoBtn" class="btn secondary">↩ 一手戻る</button><button id="resetBtn" class="btn secondary">最初から</button><button id="rulesBtn" class="btn secondary">遊び方</button></div>
+    </div>
+  </section>
+
+  <section id="statsScreen" class="screen"><div class="card"><div class="title-row"><h2>📊 戦績</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div><div id="statsGrid" class="stats-grid"></div><div class="menu" style="margin-top:18px">
+  <button id="clearStatsBtn" class="btn danger">戦績・実績をリセット</button>
+  <button id="clearSettingsBtn" class="btn secondary">ゲーム設定を初期化</button>
+</div></div></section>
+  <section id="achievementsScreen" class="screen"><div class="card"><div class="title-row"><h2>🏆 実績</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div><div id="achievementList" class="achievement-list"></div></div></section>
+</div>
+
+<div id="resultModal" class="modal"><div class="card modal-card"><div id="resultIcon" style="font-size:3rem">⚔️</div><h2 id="resultTitle">勇者軍の勝利！</h2><p id="resultText" class="subtitle"></p><div class="menu"><button id="rematchBtn" class="btn">もう一度</button><button id="resultHomeBtn" class="btn secondary">タイトルへ</button></div></div></div>
+<div id="rulesModal" class="modal"><div class="card modal-card"><h2>遊び方</h2><p class="subtitle" style="text-align:left">自軍の持ち駒、または盤上で一番上にある自軍の駒を選び、マスを選択します。大きな駒は小さな駒に重ねられます。縦・横・斜めのいずれか1列を自軍の駒でそろえると勝利です。両軍同時完成は引き分け、合法手なしは敗北、同一局面の連続3回反復は引き分けです。</p><button id="closeRulesBtn" class="btn">閉じる</button></div></div>
+
+
+
+<div id="godOverlay" class="god-overlay" aria-hidden="true">
+  <div class="god-beam"></div><div class="god-halo"></div><div class="god-sigil"></div>
+  <div class="god-character-wrap">
+    <img id="godCharacter" class="god-character" src="assets/webp/absolute-god.webp?v=16" data-fallback="assets/absolute-god.png?v=16" width="512" height="512" decoding="async" fetchpriority="low" alt="絶対神" onerror="if(this.dataset.fallback&&this.src.indexOf('.png')<0)this.src=this.dataset.fallback;else{this.style.display='none';document.getElementById('godFallback').style.display='block'}">
+    <div id="godFallback" class="god-character-fallback" aria-hidden="true">✨👑✨</div>
+  </div>
+  <div class="god-message"><strong>絶対神降臨</strong><span id="godSubText">運命の一手を授けよう</span></div>
+</div>
+<div id="victoryFx" class="victory-overlay" aria-hidden="true">
+  <div class="victory-rays"></div><div id="victoryWord" class="victory-word">VICTORY!</div>
+</div>
+<div id="mountFx" class="fx-layer" aria-hidden="true">
+  <div class="fx-flash"></div><div class="fx-ring"></div>
+  <div class="fx-banner"><div class="fx-kicker" id="fxKicker">必殺</div><div class="fx-title">MOUNT!</div><div class="fx-sub" id="fxSub">勇者が敵を制圧！</div></div>
+</div>
+<div id="toast" class="toast"></div>
+
+<script defer src="./js/core.js?v=17"></script>
+<script defer src="./js/app.js?v=17"></script>
+</body>
+</html>
