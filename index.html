@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<title>マウントクエスト 封印の盤上｜無料ファンタジーボードゲーム</title>
+<meta name="google-site-verification" content="ibaz54b6NoWlRAkQv4wIQGCsk1usdUdiuBShMnVKYBk">
+<meta name="msvalidate.01" content="0A11CA102B9CE25A82A55B1BA73B2F0F">
+<meta name="description" content="マウントクエストは、大きな駒で小さな駒を封印し、隠れた駒の覚醒と逆転を読み合う無料ファンタジーボードゲームです。AI対戦、2人対戦、クエスト、絶対神の神託、対局解析をブラウザーで楽しめます。">
+<link rel="canonical" href="https://torai526.github.io/mount-quest/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:type" content="website"><meta property="og:site_name" content="マウントクエスト"><meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="マウントクエスト 封印の盤上｜無料ファンタジーボードゲーム">
+<meta property="og:description" content="駒を倒すな。封印せよ。封印された駒の覚醒と逆転を読み合う無料ファンタジーボードゲーム。">
+<meta property="og:url" content="https://torai526.github.io/mount-quest/"><meta property="og:image" content="https://torai526.github.io/mount-quest/icons/icon-512.png">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="マウントクエスト 封印の盤上｜無料ボードゲーム"><meta name="twitter:description" content="駒を倒すな。封印せよ。ブラウザーですぐに無料プレイ。"><meta name="twitter:image" content="https://torai526.github.io/mount-quest/icons/icon-512.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"マウントクエスト","alternateName":["Mount Quest","マウントクエスト 封印の盤上"],"description":"大きな駒で小さな駒を封印し、封印された駒の覚醒と逆転を読み合う無料ファンタジーボードゲーム。","url":"https://torai526.github.io/mount-quest/","image":"https://torai526.github.io/mount-quest/icons/icon-512.png","applicationCategory":"Game","gamePlatform":["Web Browser","Windows","macOS","Android","iOS"],"genre":["Strategy","Board Game","Puzzle","Fantasy"],"inLanguage":"ja","isAccessibleForFree":true,"operatingSystem":"Web Browser","author":{"@type":"Person","name":"torai526"}}</script>
+<link rel="manifest" href="./manifest.webmanifest?v=301">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png?v=301">
+<link rel="apple-touch-icon" href="./icons/icon-192.png?v=301">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="マウントクエスト">
+<link rel="stylesheet" href="./css/base.css?v=302">
+<link rel="stylesheet" href="./css/effects.css?v=301">
+</head>
+<body>
+<div class="app">
+  <section id="homeScreen" class="screen active">
+    <div class="card hero">
+      <div class="eyebrow">勇者軍 VS 魔王軍</div>
+      <h1>⚔️ マウントクエスト ⚔️</h1>
+      <p class="subtitle">大きな仲間で小さな敵を覆い、縦・横・斜めをそろえよう。</p>
+      <div id="homeProfile" class="home-profile">
+  <div><small>冒険者</small><strong id="homeLevel">Lv.1</strong></div>
+  <div><small>称号</small><strong id="homeTitle">駆け出し冒険者</strong></div>
+  <div><small>最高連勝</small><strong id="homeBestStreak">0</strong></div>
+  <div><small>クエスト星</small><strong id="homeQuestStars">0 / 15</strong></div>
+</div><div class="menu">
+        <button class="btn" data-nav="setupScreen">冒険を始める</button><button id="questMenuBtn" class="btn secondary">🗺️ クエスト</button><button id="dailyMenuBtn" class="btn secondary">📅 デイリークエスト</button>
+        <button id="profileMenuBtn" class="btn secondary">🏅 冒険者プロフィール</button><button id="encyclopediaMenuBtn" class="btn secondary">📖 キャラクター図鑑</button><button id="customizeMenuBtn" class="btn secondary">🎨 外見カスタマイズ</button><button id="dataManagerBtn" class="btn secondary">💾 セーブ管理</button><button class="btn secondary" data-nav="statsScreen">📊 戦績</button>
+        <button class="btn secondary" data-nav="achievementsScreen">🏆 実績</button>
+      </div>
+    </div>
+    <p class="footer">Mount Quest v3.0.1 不具合修正版</p>
+  </section>
+
+  
+<div id="welcomeModal" class="modal"><div class="card welcome-card">
+  <div class="welcome-emblem">⚔️</div><p class="eyebrow">MOUNT QUEST</p><h2>マウントクエストへようこそ</h2>
+  <div id="welcomePages" class="welcome-pages">
+    <section class="welcome-page active" data-welcome-page="0"><h3>大きな駒で小さな駒を覆う</h3><p>駒は小・中・大の3種類。大きな駒は小さな駒へマウントできます。</p></section>
+    <section class="welcome-page" data-welcome-page="1"><h3>縦・横・斜めを完成</h3><p>盤面の一列を自軍の駒でそろえると勝利です。隠れた駒が再び現れる展開にも注意しましょう。</p></section>
+    <section class="welcome-page" data-welcome-page="2"><h3>冒険と成長</h3><p>AI対戦、クエスト、絶対神解析、図鑑、称号、デイリー課題を遊びながら冒険者を育てられます。</p></section>
+  </div>
+  <div id="welcomeDots" class="welcome-dots"><i class="active"></i><i></i><i></i></div>
+  <div class="welcome-actions"><button id="welcomeBackBtn" class="btn secondary" disabled>前へ</button><button id="welcomeNextBtn" class="btn">次へ</button></div>
+</div></div>
+
+<section id="dataScreen" class="screen"><div class="card"><div class="title-row"><h2>💾 セーブ管理</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div>
+  <p class="subtitle">戦績、クエスト、レベル、称号、図鑑、デイリー、外見設定をJSONファイルでバックアップできます。</p>
+  <div id="saveSummary" class="save-summary"></div>
+  <div class="menu"><button id="exportSaveBtn" class="btn">バックアップを書き出す</button><label class="btn secondary file-button">バックアップを読み込む<input id="importSaveInput" type="file" accept="application/json,.json"></label><button id="copySaveBtn" class="btn secondary">バックアップ文字列をコピー</button></div>
+  <div class="field"><label for="saveTextArea">バックアップ文字列</label><textarea id="saveTextArea" class="save-textarea" rows="7" placeholder="ここへバックアップ文字列を貼り付けても復元できます"></textarea><button id="restoreTextBtn" class="btn secondary" style="width:100%;margin-top:8px">文字列から復元</button></div>
+  <p class="note">復元後は画面を再読み込みします。異常な形式や別データは読み込みません。</p>
+</div></section>
+
+<div id="releaseModal" class="modal"><div class="card modal-card"><div style="font-size:3rem">🎉</div><h2>Version 3.0.1</h2><p class="subtitle">冒険、解析、成長、収集、デイリー、外見変更を統合した完成版です。</p><button id="closeReleaseBtn" class="btn">冒険を続ける</button></div></div>
+<section id="setupScreen" class="screen">
+    <div class="card">
+      <div class="title-row"><h2>冒険の設定</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div>
+      <div class="field"><label>対戦モード</label><div class="segmented two">
+        <label><input class="choice" type="radio" name="mode" value="ai" checked><span>魔王AIと対戦</span></label>
+        <label><input class="choice" type="radio" name="mode" value="local"><span>2人で対戦</span></label>
+      </div></div>
+      <div id="godOptionField" class="field"><label>絶対神の助言</label><div class="segmented two">
+        <label><input class="choice" type="radio" name="godHelp" value="on" checked><span>✨ あり</span></label>
+        <label><input class="choice" type="radio" name="godHelp" value="off"><span>なし</span></label>
+      </div><p class="note">現在の手番に対する最強AIの推奨手を表示します。AI対戦では勇者軍の手番中に利用できます。</p></div>
+      <div class="field"><label>盤面</label><div class="segmented two">
+        <label><input class="choice" type="radio" name="size" value="3"><span>3 × 3</span></label>
+        <label><input class="choice" type="radio" name="size" value="4" checked><span>4 × 4</span></label>
+      </div></div>
+      <div id="difficultyField" class="field"><label>AI難易度</label><div class="segmented four">
+        <label><input class="choice" type="radio" name="difficulty" value="easy"><span>初級</span></label>
+        <label><input class="choice" type="radio" name="difficulty" value="medium" checked><span>中級</span></label>
+        <label><input class="choice" type="radio" name="difficulty" value="hard"><span>上級</span></label>
+        <label><input class="choice" type="radio" name="difficulty" value="expert"><span>最強</span></label>
+      </div></div>
+      <div class="field"><label>勇者軍の手番</label><div class="segmented">
+        <label><input class="choice" type="radio" name="first" value="hero" checked><span>先手</span></label>
+        <label><input class="choice" type="radio" name="first" value="demon"><span>後手</span></label>
+        <label><input class="choice" type="radio" name="first" value="random"><span>ランダム</span></label>
+      </div></div>
+      <p id="modeNote" class="note">AI対戦では、あなたは勇者軍、AIは魔王軍で固定されます。絶対神の助言は勇者軍の手番中に利用できます。</p>
+      <button id="launchBtn" class="btn" style="width:100%">出撃する</button>
+    </div>
+  </section>
+
+  
+
+<section id="dailyScreen" class="screen"><div class="card"><div class="title-row"><h2>📅 デイリークエスト</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div><div class="daily-header"><div><strong id="dailyDate"></strong><small>毎日0時に新しい課題へ更新</small></div><div><strong id="dailyStampCount">0</strong><small>デイリースタンプ</small></div></div><div id="dailyTaskList" class="daily-task-list"></div><div class="daily-reward"><span>本日のコンプリート報酬</span><strong>100 XP ＋ スタンプ1個</strong><button id="claimDailyBtn" class="btn" disabled>報酬を受け取る</button></div></div></section>
+<div id="dailyCompleteModal" class="modal"><div class="card modal-card"><div style="font-size:3rem">✨📅✨</div><h2>DAILY COMPLETE!</h2><p class="subtitle">100 XPとデイリースタンプを獲得しました。</p><button id="closeDailyCompleteBtn" class="btn">確認</button></div></div>
+<section id="questScreen" class="screen"><div class="card"><div class="title-row"><h2>🗺️ 第1章 はじまりの草原</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div><p class="subtitle">全5ステージ。条件を達成して星を集めよう。</p><div id="questList" class="quest-list"></div></div></section>
+<div id="questBriefModal" class="modal"><div class="card modal-card"><div id="questBriefIcon" style="font-size:3rem">🗺️</div><h2 id="questBriefTitle">QUEST 1-1</h2><p id="questBriefText" class="subtitle"></p><div id="questConditions" class="quest-conditions"></div><div class="menu"><button id="startQuestBtn" class="btn">挑戦する</button><button id="cancelQuestBtn" class="btn secondary">戻る</button></div></div></div>
+<div id="questResultModal" class="modal"><div class="card modal-card"><div id="questResultIcon" style="font-size:3rem">⭐</div><h2 id="questResultTitle">QUEST CLEAR!</h2><div id="questStars" class="quest-stars">★★★</div><p id="questResultText" class="subtitle"></p><div class="menu"><button id="questRetryBtn" class="btn">もう一度</button><button id="questListBtn" class="btn secondary">クエスト一覧へ</button></div></div></div>
+<section id="gameScreen" class="screen">
+    <div class="topbar"><span class="brand">マウントクエスト</span><button id="quitBtn" class="btn ghost">冒険を終える</button></div>
+    <div id="status" class="status hero-side">勇者軍の手番</div>
+    <div class="game-layout">
+      <div id="heroReserve" class="reserve"></div>
+      <div id="board" class="board n4" aria-label="ゲーム盤"></div>
+      <div id="demonReserve" class="reserve"></div>
+      <div class="game-actions"><button id="godBtn" class="btn god-btn hidden"><img class="god-btn-icon" src="assets/webp/absolute-god.webp?v=16" data-fallback="assets/absolute-god.png?v=16" width="34" height="34" decoding="async" alt="" onerror="if(this.dataset.fallback&&this.src.indexOf('.png')<0)this.src=this.dataset.fallback;else this.style.display='none'"> <span>絶対神に問う</span></button><button id="undoBtn" class="btn secondary">↩ 一手戻る</button><button id="resetBtn" class="btn secondary">最初から</button><button id="rulesBtn" class="btn secondary">遊び方</button></div>
+    </div>
+  </section>
+
+  
+
+
+<section id="customizeScreen" class="screen"><div class="card"><div class="title-row"><h2>🎨 外見カスタマイズ</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div>
+<p class="subtitle">対戦ルールや駒の強さは変わりません。獲得した盤面テーマと駒スキンを選択できます。</p>
+<h3>盤面テーマ</h3><div id="themeList" class="customize-grid"></div>
+<h3 class="customize-heading">キャラクタースキン</h3><div id="skinList" class="customize-grid"></div>
+<div class="customize-preview"><span>現在の組み合わせ</span><div id="customizePreviewBoard" class="preview-board"><div class="preview-cell"><img id="customizePreviewHero" src="assets/webp/hero.webp?v=29" alt="勇者"></div><div class="preview-cell"><img id="customizePreviewDemon" src="assets/webp/demonlord.webp?v=29" alt="魔王"></div></div></div>
+</div></section>
+<section id="encyclopediaScreen" class="screen"><div class="card"><div class="title-row"><h2>📖 キャラクター図鑑</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div><p class="subtitle">出撃、マウント、勝利ラインで熟練度が上がります。熟練度に応じて枠とオーラが変化します。</p><div id="encyclopediaGrid" class="encyclopedia-grid"></div></div></section>
+<div id="characterDetailModal" class="modal"><div class="card character-detail-card"><div class="title-row"><h2 id="characterDetailName">勇者</h2><button id="closeCharacterDetailBtn" class="btn ghost">閉じる</button></div><div class="character-portrait-wrap"><img id="characterDetailImage" class="character-portrait" src="" alt=""></div><div id="characterDetailMastery" class="mastery-title"></div><div class="mastery-bar"><i id="characterMasteryBar"></i></div><div id="characterDetailStats" class="character-stats"></div><p id="characterDetailLore" class="subtitle character-lore"></p></div></div>
+<section id="profileScreen" class="screen"><div class="card"><div class="title-row"><h2>🏅 冒険者プロフィール</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div>
+<div class="profile-hero"><div class="level-badge"><small>LEVEL</small><strong id="profileLevel">1</strong></div><div><div id="activeTitle" class="active-title">駆け出し冒険者</div><div id="profileXpText" class="note">0 / 100 XP</div><div class="xp-bar"><i id="profileXpBar"></i></div></div></div>
+<div id="streakPanel" class="streak-panel"></div><h3>称号</h3><p class="note">獲得済みの称号を選ぶと、プロフィールへ設定できます。</p><div id="titleList" class="title-list"></div></div></section>
+<div id="levelUpModal" class="modal"><div class="card modal-card"><div style="font-size:3rem">✨🏅✨</div><h2>LEVEL UP!</h2><p id="levelUpText" class="subtitle"></p><button id="closeLevelUpBtn" class="btn">確認</button></div></div>
+<section id="statsScreen" class="screen"><div class="card"><div class="title-row"><h2>📊 戦績</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div><div id="statsGrid" class="stats-grid"></div><div class="menu" style="margin-top:18px">
+  <button id="clearStatsBtn" class="btn danger">戦績・実績をリセット</button>
+  <button id="clearSettingsBtn" class="btn secondary">ゲーム設定を初期化</button>
+</div></div></section>
+  <section id="achievementsScreen" class="screen"><div class="card"><div class="title-row"><h2>🏆 実績</h2><button class="btn ghost" data-nav="homeScreen">戻る</button></div><div id="achievementList" class="achievement-list"></div></div></section>
+</div>
+
+<div id="resultModal" class="modal"><div class="card modal-card"><div id="resultIcon" style="font-size:3rem">⚔️</div><h2 id="resultTitle">勇者軍の勝利！</h2><p id="resultText" class="subtitle"></p><div class="menu"><button id="rematchBtn" class="btn">もう一度</button><button id="resultHomeBtn" class="btn secondary">タイトルへ</button></div></div></div>
+
+<div id="analysisAskModal" class="modal"><div class="card modal-card"><div style="font-size:3rem">✨📈✨</div><h2>絶対神による対局解析</h2><p class="subtitle">この対局の各手を解析し、評価値グラフを表示しますか？</p><div class="menu"><button id="showAnalysisBtn" class="btn god-btn"><span>評価値を表示する</span></button><button id="skipAnalysisBtn" class="btn secondary">表示せず終了する</button></div></div></div>
+<div id="analysisModal" class="modal analysis-modal"><div class="card analysis-card"><div class="title-row"><h2>絶対神の対局評価</h2><button id="closeAnalysisBtn" class="btn ghost">終了</button></div><div id="analysisProgress" class="analysis-progress">解析を準備しています…</div>
+<div id="resultSummary" class="result-summary hidden">
+  <div class="rank-panel"><span class="rank-kicker">QUEST RESULT</span><strong id="resultRank">A</strong><span id="rankComment">見事な対局です</span></div>
+  <div id="resultMetrics" class="result-metrics"></div>
+  <div class="highlight-grid">
+    <button id="bestMoveCard" class="highlight-card" type="button"><span>BEST MOVE</span><strong id="bestMoveTitle">解析中</strong><small id="bestMoveText"></small></button>
+    <button id="turningPointCard" class="highlight-card danger-card" type="button"><span>運命の分岐点</span><strong id="turningPointTitle">解析中</strong><small id="turningPointText"></small></button>
+  </div>
+</div>
+<div class="analysis-legend"><span class="hero-dot">● 勇者軍</span><span class="demon-dot">● 魔王軍</span><span class="mount-mark">◎ マウント</span></div><div id="analysisChart" class="analysis-chart" aria-label="対局評価グラフ"></div><div id="analysisDetail" class="analysis-detail"><p>グラフの点を選択すると手の詳細を表示します。</p></div><div class="analysis-actions"><button id="restoreMoveBtn" class="btn hidden">この手の直前へ戻る</button><button id="cancelAnalysisBtn" class="btn danger hidden">解析を中止する</button></div></div></div>
+<div id="rulesModal" class="modal"><div class="card modal-card"><h2>遊び方</h2><p class="subtitle" style="text-align:left">自軍の持ち駒、または盤上で一番上にある自軍の駒を選び、マスを選択します。大きな駒は小さな駒に重ねられます。縦・横・斜めのいずれか1列を自軍の駒でそろえると勝利です。両軍同時完成は引き分け、合法手なしは敗北、同一局面の連続3回反復は引き分けです。</p><button id="closeRulesBtn" class="btn">閉じる</button></div></div>
+
+
+
+<div id="godOverlay" class="god-overlay" aria-hidden="true">
+  <div class="god-beam"></div><div class="god-halo"></div><div class="god-sigil"></div>
+  <div class="god-character-wrap">
+    <img id="godCharacter" class="god-character" src="assets/absolute-god.png?v=3011" width="512" height="512" decoding="sync" fetchpriority="high" loading="eager" alt="絶対神" onerror="this.style.display='none';document.getElementById('godFallback').style.display='block'">
+    <div id="godFallback" class="god-character-fallback" aria-hidden="true">✨👑✨</div>
+  </div>
+  <div class="god-message"><strong>絶対神降臨</strong><span id="godSubText">運命の一手を授けよう</span></div>
+</div>
+<div id="victoryFx" class="victory-overlay" aria-hidden="true">
+  <div class="victory-rays"></div><div id="victoryWord" class="victory-word">VICTORY!</div>
+</div>
+<div id="mountFx" class="fx-layer" aria-hidden="true">
+  <div class="fx-flash"></div><div class="fx-ring"></div>
+  <div class="fx-banner"><div class="fx-kicker" id="fxKicker">必殺</div><div class="fx-title">MOUNT!</div><div class="fx-sub" id="fxSub">勇者が敵を制圧！</div></div>
+</div>
+<div id="toast" class="toast"></div>
+
+<section class="game-introduction" aria-labelledby="game-introduction-title"><h2 id="game-introduction-title">マウントクエストとは</h2><p><strong>「駒を倒すな。封印せよ。」</strong></p><p>マウントクエストは、勇者軍と魔王軍が聖なる盤上で戦う、無料のファンタジー戦略ボードゲームです。</p><p>大きな駒は小さな駒を封印できます。しかし、封印された駒は消滅しません。上の駒が別の場所へ移動すると、隠れていた駒が再び覚醒し、盤上の戦況を覆します。</p><h3>マウントクエストの特徴</h3><ul><li>大きな駒で小さな駒を封印する独自ルール</li><li>封印された駒が再び覚醒する逆転要素</li><li>AI対戦・2人対戦・絶対神の神託・対局解析</li></ul></section>
+<script defer src="./js/core.js?v=301"></script>
+<script defer src="./js/app.js?v=301"></script>
+</body>
+</html>
